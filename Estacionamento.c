@@ -58,28 +58,27 @@ void telaInfo(void) {
 
 void telaCriacao(void) {
     printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
-    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
-    printf("///              Projeto Sistema de Controle de Estacionamento              ///\n");
-    printf("///                  Developed by @joaovitorgd - Out, 2021                  ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///        = = = = = Sistema de Controle de Estacionamento = = = = =        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            Este projeto exemplo foi desenvolvido por:                   ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            Aluno: João Vitor Gomes Dantas                               ///\n");
-    printf("///            E-mail: joao.vitor.dantas.085@ufrn.edu.br                    ///\n");
-    printf("///            Redes sociais: @joaovitorgd                                  ///\n");
-    printf("///            Repositório: https://github.com/JoaoVitorGomesDantas         ///\n");
-    printf("///                         /ControleDeEstacionamento                       ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///                    Universidade Federal do Rio Grande do Norte                    ///\n");
+    printf("///                        Centro de Ensino Superior do Seridó                        ///\n");
+    printf("///                      Departamento de Computação e Tecnologia                      ///\n");
+    printf("///                         Disciplina DCT1106 -- Programação                         ///\n");
+    printf("///                   Projeto Sistema de Controle de Estacionamento                   ///\n");
+    printf("///                       Developed by @joaovitorgd - Out, 2021                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///             ========= Sistema de Controle de Estacionamento =========             ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///    Este projeto exemplo foi desenvolvido por:                                     ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///    Aluno: João Vitor Gomes Dantas                                                 ///\n");
+    printf("///    E-mail: joao.vitor.dantas.085@ufrn.edu.br                                      ///\n");
+    printf("///    Redes sociais: @joaovitorgd                                                    ///\n");
+    printf("///    Repositório: https://github.com/JoaoVitorGomesDantas/ControleDeEstacionamento  ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
 
