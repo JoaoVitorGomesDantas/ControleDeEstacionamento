@@ -5,6 +5,7 @@
 ///                 Departamento de Computação e Tecnologia                 ///
 ///                    Disciplina DCT1106 -- Programação                    ///
 ///              Projeto Sistema de Controle de Estacionamento              ///
+///   Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta   ///
 ///                  Developed by @joaovitorgd - Out, 2021                  ///
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -14,12 +15,16 @@
 // Assinatura das funções
 void telaInfo(void);
 void telaCriacao(void);
+void telaInicio(void);
+void telaCliente(void);
 
 /////
 // Programa principal
 int main(void) {
     telaInfo();
     telaCriacao();
+    telaInicio();
+    telaCliente();
     return 0;
 }
 
@@ -75,5 +80,47 @@ void telaCriacao(void) {
     printf("///                         /ControleDeEstacionamento                       ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaInicio(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                ======  Menu  ======                               ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Cliente                                                        ///\n");
+    printf("///               2 -  Valores                                                        ///\n");
+    printf("///               3 -  Vagas                                                          ///\n");
+    printf("///               4 -  Agendamento                                                    ///\n");
+    printf("///               5 -  Sobre o Sistema                                                ///\n");
+    printf("///               6 -  Sair                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaCliente(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///                          ======  Menu dos Cliente ======                          ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Cadastrar cliente                                              ///\n");
+    printf("///               2 -  Pesquisar dados do cliente                                     ///\n");
+    printf("///               3 -  Atualizar dados do cliente                                     ///\n");
+    printf("///               4 -  Excluir cliente do sistema                                     ///\n");
+    printf("///               5 -  Voltar ao Menu                                                 ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
