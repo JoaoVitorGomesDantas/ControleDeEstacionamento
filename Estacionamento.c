@@ -18,6 +18,9 @@ void telaCriacao(void);
 void telaInicio(void);
 void telaCliente(void);
 void telaCadastrar(void);
+void telaPesquisar(void);
+void telaAtualizar(void);
+void telaExcluir(void);
 void telaValores(void);
 
 /////
@@ -28,6 +31,9 @@ int main(void) {
     telaInicio();
     telaCliente();
     telaCadastrar();
+    telaPesquisar();
+    telaAtualizar();
+    telaExcluir();
     telaValores();
     return 0;
 }
@@ -147,6 +153,69 @@ void telaCadastrar(void) {
     printf("///          Veículo:                                                                 ///\n");
     printf("///          Placa do veículo:                                                        ///\n");
     printf("///          Cor do veículo:                                                          ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaPesquisar(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================== Pesquisar Cliente ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o CPF:                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaAtualizar(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================== Atualizar Cliente ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o CPF:                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaExcluir(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              =================== Excluir Cliente ===================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o CPF:                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
