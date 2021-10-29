@@ -17,6 +17,7 @@ void telaInfo(void);
 void telaCriacao(void);
 void telaInicio(void);
 void telaCliente(void);
+void telaValores(void);
 
 /////
 // Programa principal
@@ -25,6 +26,7 @@ int main(void) {
     telaCriacao();
     telaInicio();
     telaCliente();
+    telaValores();
     return 0;
 }
 
@@ -118,6 +120,27 @@ void telaCliente(void) {
     printf("///               3 -  Atualizar dados do cliente                                     ///\n");
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
     printf("///               5 -  Voltar ao Menu                                                 ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaValores(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///                               ====== Valores ======                               ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
