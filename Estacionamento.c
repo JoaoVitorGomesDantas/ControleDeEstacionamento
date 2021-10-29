@@ -113,7 +113,7 @@ void telaCliente(void) {
     printf("///              =======================================================              ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///                          ======  Menu dos Cliente ======                          ///\n");
+    printf("///              =================== Menu de Cliente ===================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///               1 -  Cadastrar cliente                                              ///\n");
     printf("///               2 -  Pesquisar dados do cliente                                     ///\n");
@@ -134,12 +134,12 @@ void telaValores(void) {
     printf("///              =======================================================              ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///                               ====== Valores ======                               ///\n");
+    printf("///              =================== Menu de Valores ===================              ///\n");
     printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
+    printf("///                                        Hora     Dia     Semana     Mês            ///\n");
+    printf("///         Motocicletas             |R$   2,50     10,00   30,00      100,00         ///\n");
+    printf("///         Carros de pequeno porte  |R$   5,00     20,00   60,00      200,00         ///\n");
+    printf("///         Carros de grande porte   |R$   7,50     30,00   90,00      300,00         ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
