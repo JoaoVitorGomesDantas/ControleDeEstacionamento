@@ -17,6 +17,7 @@ void telaInfo(void);
 void telaCriacao(void);
 void telaInicio(void);
 void telaCliente(void);
+void telaCadastrar(void);
 void telaValores(void);
 
 /////
@@ -26,6 +27,7 @@ int main(void) {
     telaCriacao();
     telaInicio();
     telaCliente();
+    telaCadastrar();
     telaValores();
     return 0;
 }
@@ -46,7 +48,7 @@ void telaInfo(void) {
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///             ========= Sistema de Controle de Estacionamento =========             ///\n");
+    printf("///              ======== Sistema de Controle de Estacionamento ========              ///\n");
     printf("///                                                                                   ///\n");
     printf("///      Projeto da disciplina DCT1106 - Programação, para criação de um sistema      ///\n");
     printf("///      de controle de estacionamentos ao qual tem por objetivos desenvolver um      ///\n");
@@ -92,9 +94,9 @@ void telaInicio(void) {
     printf("///              =======================================================              ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///                                ======  Menu  ======                               ///\n");
+    printf("///              ========================  Menu  =======================              ///\n");
     printf("///                                                                                   ///\n");
-    printf("///               1 -  Cliente                                                        ///\n");
+    printf("///               1 -  Clientes                                                       ///\n");
     printf("///               2 -  Valores                                                        ///\n");
     printf("///               3 -  Vagas                                                          ///\n");
     printf("///               4 -  Agendamento                                                    ///\n");
@@ -121,6 +123,30 @@ void telaCliente(void) {
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
     printf("///               5 -  Voltar ao Menu                                                 ///\n");
     printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaCadastrar(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================= Cadastro do Cliente =================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Nome do cliente:                                                         ///\n");
+    printf("///          CPF:                                                                     ///\n");
+    printf("///          Data de nascimento:                                                      ///\n");
+    printf("///          Email:                                                                   ///\n");
+    printf("///          Telefone:                                                                ///\n");
+    printf("///          Veículo:                                                                 ///\n");
+    printf("///          Placa do veículo:                                                        ///\n");
+    printf("///          Cor do veículo:                                                          ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
