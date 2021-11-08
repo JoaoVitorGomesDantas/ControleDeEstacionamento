@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /////
 // Assinatura das funções
@@ -93,6 +94,8 @@ void telaCriacao(void) {
 }
 
 void telaInicio(void) {
+    char menu;
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -109,11 +112,16 @@ void telaInicio(void) {
     printf("///               5 -  Sobre o Sistema                                                ///\n");
     printf("///               6 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
+    printf("///            Escolha a opção que você deseja:                                       ///\n");
+    scanf("%c", &menu);
+    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
 
 void telaCliente(void) {
+    char cli;
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -129,12 +137,23 @@ void telaCliente(void) {
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
     printf("///               5 -  Voltar ao Menu                                                 ///\n");
     printf("///                                                                                   ///\n");
+    printf("///            Escolha a opção que você deseja:                                       ///\n");
+    scanf("%c", &cli);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
 
 void telaCadastrar(void) {
+    char nome[61];
+    char cpf[14];
+    char nasc[11];
+    char email[61];
+    char tel[12];
+    char veic[30];
+    char placa[10];
+    char cor[15];
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -146,19 +165,29 @@ void telaCadastrar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Nome do cliente:                                                         ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
     printf("///          CPF:                                                                     ///\n");
+    scanf("%[0-9]", cpf);
     printf("///          Data de nascimento:                                                      ///\n");
+    scanf("%[0-9]/", nasc);
     printf("///          Email:                                                                   ///\n");
+    scanf("%[A-Za-z@._]", email);
     printf("///          Telefone:                                                                ///\n");
+    scanf("%[0-9]", tel);
     printf("///          Veículo:                                                                 ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", veic);
     printf("///          Placa do veículo:                                                        ///\n");
+    scanf("%[A-Za-z0-9]", placa);
     printf("///          Cor do veículo:                                                          ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cor);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
 
 void telaPesquisar(void) {
+    char cpf;
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -170,6 +199,7 @@ void telaPesquisar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o CPF:                                                           ///\n");
+    scanf("%[0-9]", &cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -180,6 +210,8 @@ void telaPesquisar(void) {
 }
 
 void telaAtualizar(void) {
+    char cpf;
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -191,6 +223,7 @@ void telaAtualizar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o CPF:                                                           ///\n");
+    scanf("%[0-9]", &cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -201,6 +234,8 @@ void telaAtualizar(void) {
 }
 
 void telaExcluir(void) {
+    char cpf;
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -212,6 +247,7 @@ void telaExcluir(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o CPF:                                                           ///\n");
+    scanf("%[0-9]", &cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
