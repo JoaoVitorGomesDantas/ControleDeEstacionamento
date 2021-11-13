@@ -23,6 +23,9 @@ void telaPesquisar(void);
 void telaAtualizar(void);
 void telaExcluir(void);
 void telaValores(void);
+void telaAluguel(void);
+void telaVagas(void);
+void telaAlugando(void);
 
 /////
 // Programa principal
@@ -36,6 +39,9 @@ int main(void) {
     telaAtualizar();
     telaExcluir();
     telaValores();
+    telaAluguel();
+    telaVagas();
+    telaAlugando();
     return 0;
 }
 
@@ -290,6 +296,80 @@ void telaValores(void) {
     printf("///         Carros de grande porte   |R$   7,50     30,00   90,00      300,00         ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaAluguel(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ===================  Menu de Aluguel ===================             ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Vagas                                                          ///\n");
+    printf("///               2 -  Aluguel                                                        ///\n");
+    printf("///               3 -  Sair                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///            Escolha a opção que você deseja:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaVagas(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              =================== Tabela de Vagas ===================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                         Quantidade de Vagas                       ///\n");
+    printf("///         Motocicletas             |               x                                ///\n");
+    printf("///         Carros de pequeno porte  |               y                                ///\n");
+    printf("///         Carros de grande porte   |               z                                ///\n");
+    printf("///         Vagas Totais             |             x+y+z                              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaAlugando(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              =================== Menu para Alugar ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Nome do cliente:                                                         ///\n");
+    printf("///          CPF:                                                                     ///\n");
+    printf("///          Data de entrada:                                                         ///\n");
+    printf("///          Data de saída:                                                           ///\n");
+    printf("///          Tipo do veículo:                                                         ///\n");
+    printf("///          Modelo do veículo:                                                       ///\n");
+    printf("///          Placa do veículo:                                                        ///\n");
+    printf("///          Valor do aluguel:                                                        ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
