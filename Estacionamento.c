@@ -106,9 +106,9 @@ void telaInicio(void) {
     printf("///              ========================  Menu  =======================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///               1 -  Clientes                                                       ///\n");
-    printf("///               2 -  Valores                                                        ///\n");
-    printf("///               3 -  Vagas                                                          ///\n");
-    printf("///               4 -  Agendamento                                                    ///\n");
+    printf("///               2 -  Tabela de Valores                                              ///\n");
+    printf("///               3 -  Aluguel                                                        ///\n");
+    printf("///               4 -  Gestão                                                         ///\n");
     printf("///               5 -  Sobre o Sistema                                                ///\n");
     printf("///               6 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
@@ -265,7 +265,7 @@ void telaValores(void) {
     printf("///              =======================================================              ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///              =================== Menu de Valores ===================              ///\n");
+    printf("///              ================== Tabela de Valores ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                        Hora     Dia     Semana     Mês            ///\n");
     printf("///         Motocicletas             |R$   2,50     10,00   30,00      100,00         ///\n");
