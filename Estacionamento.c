@@ -26,6 +26,7 @@ void telaValores(void);
 void telaAluguel(void);
 void telaVagas(void);
 void telaAlugando(void);
+void telaGestao(void);
 
 /////
 // Programa principal
@@ -42,6 +43,7 @@ int main(void) {
     telaAluguel();
     telaVagas();
     telaAlugando();
+    telaGestao();
     return 0;
 }
 
@@ -119,8 +121,7 @@ void telaInicio(void) {
     printf("///               2 -  Tabela de Valores                                              ///\n");
     printf("///               3 -  Aluguel                                                        ///\n");
     printf("///               4 -  Gestão                                                         ///\n");
-    printf("///               5 -  Sobre o Sistema                                                ///\n");
-    printf("///               6 -  Sair                                                           ///\n");
+    printf("///               5 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
     scanf("%c", &menu);
@@ -369,7 +370,34 @@ void telaAlugando(void) {
     printf("///          Tipo do veículo:                                                         ///\n");
     printf("///          Modelo do veículo:                                                       ///\n");
     printf("///          Placa do veículo:                                                        ///\n");
-    printf("///          Valor do aluguel:                                                        ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///       Valor total do aluguel:                                                     ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaGestao(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ===================  Menu de Gestão ===================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Funcionários                                                   ///\n");
+    printf("///               2 -  Fluxo financeiro                                               ///\n");
+    printf("///               3 -  Controle de vagas                                              ///\n");
+    printf("///               4 -  Sair                                                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///            Escolha a opção que você deseja:                                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
