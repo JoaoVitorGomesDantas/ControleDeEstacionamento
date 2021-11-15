@@ -32,6 +32,8 @@ void telaCadastrarFunc(void);
 void telaPesquisarFunc(void);
 void telaAtualizarFunc(void);
 void telaExcluirFunc(void);
+void telaFluxoFinanceiro(void);
+void telaControleVagas(void);
 
 /////
 // Programa principal
@@ -54,6 +56,8 @@ int main(void) {
     telaPesquisarFunc();
     telaAtualizarFunc();
     telaExcluirFunc();
+    telaFluxoFinanceiro();
+    telaControleVagas();
     return 0;
 }
 
@@ -454,7 +458,9 @@ void telaCadastrarFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///          Nome:                                                                    ///\n");
     printf("///          CPF:                                                                     ///\n");
+    printf("///          RG:                                                                      ///\n");
     printf("///          Data de nascimento:                                                      ///\n");
+    printf("///          Endereço:                                                                ///\n");
     printf("///          Email:                                                                   ///\n");
     printf("///          Telefone:                                                                ///\n");
     printf("///                                                                                   ///\n");
@@ -533,6 +539,66 @@ void telaExcluirFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaFluxoFinanceiro(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              =================== Fluxo Financeiro ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Faturamento diário:                                                      ///\n");
+    printf("///          Daspesas diária:                                                         ///\n");
+    printf("///          Lucro do dia:                                                            ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///       Receita Semanal da Empresa:                                                 ///\n");
+    printf("///       Receita Mensal da Empresa:                                                  ///\n");
+    printf("///       Lucro Semanal da Empresa:                                                   ///\n");
+    printf("///       Lucro Mensal da Empresa:                                                    ///\n");
+    printf("///       Despesas Semanais da Empresa:                                               ///\n");
+    printf("///       Despesas Mensais da Empresa:                                                ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaControleVagas(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================== Controle de Vagas ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Vagas Totais:                                                            ///\n");
+    printf("///          Vagas em Uso:                                                            ///\n");
+    printf("///          Vagas Disponíveis:                                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///       Vagas alugadas no dia:                                                      ///\n");
+    printf("///       Vagas alugadas no semana:                                                   ///\n");
+    printf("///       Vagas alugadas no mês:                                                      ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
