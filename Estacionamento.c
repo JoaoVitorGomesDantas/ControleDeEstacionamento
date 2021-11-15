@@ -27,6 +27,11 @@ void telaAluguel(void);
 void telaVagas(void);
 void telaAlugando(void);
 void telaGestao(void);
+void telaFuncionarios(void);
+void telaCadastrarFunc(void);
+void telaPesquisarFunc(void);
+void telaAtualizarFunc(void);
+void telaExcluirFunc(void);
 
 /////
 // Programa principal
@@ -44,6 +49,11 @@ int main(void) {
     telaVagas();
     telaAlugando();
     telaGestao();
+    telaFuncionarios();
+    telaCadastrarFunc();
+    telaPesquisarFunc();
+    telaAtualizarFunc();
+    telaExcluirFunc();
     return 0;
 }
 
@@ -398,6 +408,131 @@ void telaGestao(void) {
     printf("///               4 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaFuncionarios(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================ Menu dos Funcionários ================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Cadastrar funcionário                                          ///\n");
+    printf("///               2 -  Pesquisar dados do funcionário                                 ///\n");
+    printf("///               3 -  Atualizar dados do funcionário                                 ///\n");
+    printf("///               4 -  Excluir funcionário do sistema                                 ///\n");
+    printf("///               5 -  Voltar ao Menu                                                 ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///            Escolha a opção que você deseja:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaCadastrarFunc(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================ Cadastrar Funcionário ================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Nome:                                                                    ///\n");
+    printf("///          CPF:                                                                     ///\n");
+    printf("///          Data de nascimento:                                                      ///\n");
+    printf("///          Email:                                                                   ///\n");
+    printf("///          Telefone:                                                                ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///       Número de identificação do funcionário:                                     ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaPesquisarFunc(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================ Pesquisar Funcionário ================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o número de idenfiticação:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaAtualizarFunc(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================ Atualizar Funcionário ================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o número de idenfiticação:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaExcluirFunc(void) {
+
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================= Excluir Funcionário =================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///          Informe o número de idenfiticação:                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
