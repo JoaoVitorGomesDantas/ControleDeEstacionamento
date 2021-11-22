@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/////
-// Assinatura das funções
+////////////////////////////
+// Assinatura das funções //
+////////////////////////////
+
 void telaInicio(void);
 void telaCliente(void);
 void telaCadastrar(void);
@@ -35,15 +37,37 @@ void telaControleVagas(void);
 void telaInfo(void);
 void telaCriacao(void);
 
-/////
-// Programa principal
+////////////////////////
+// Programa principal //
+////////////////////////
+
 int main(void) {
-    telaInicio();
-    telaCliente();
-    telaCadastrar();
-    telaPesquisar();
-    telaAtualizar();
-    telaExcluir();
+    char menu;
+
+    do {
+        menu = telaInicio();
+        switch(menu) {
+            case '1':   moduloCliente();
+                        break;
+            case '2':   //telaValores();
+                        break;
+            case '3':   //telaAluguel();
+                        break;
+            case '4':   //telaGestao();
+                        break;
+            case '5':   telaInfo();
+                        telaCriacao();
+                        break;
+
+        } 	
+    } while (menu != '0');
+
+    ///telaInicio();
+    ///telaCliente();
+    ///telaCadastrar();
+    ///telaPesquisar();
+    ///telaAtualizar();
+    ///telaExcluir();
     telaValores();
     telaAluguel();
     telaVagas();
@@ -56,13 +80,15 @@ int main(void) {
     telaExcluirFunc();
     telaFluxoFinanceiro();
     telaControleVagas();
-    telaInfo();
-    telaCriacao();
+    ///telaInfo();
+    ///telaCriacao();
+
     return 0;
 }
 
-/////
-// Funções
+/////////////
+// Funções //
+/////////////
 
 void telaInicio(void) {
     char menu;
@@ -89,6 +115,27 @@ void telaInicio(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+}
+
+///////////////////////////////////////
+////// Funções do Módulo Cliente //////
+///////////////////////////////////////
+
+void moduloCliente(void) {
+    char cli;
+    do {
+        cli = telaCliente();
+        switch(cli) {
+            case '1': 	telaCadastrar();
+                        break;
+            case '2': 	telaPesquisar();
+                        break;
+            case '3': 	telaAtualizar();
+                        break;
+            case '4': 	telaExcluir();
+                        break;
+        } 		
+    } while (cli != '0');
 }
 
 void telaCliente(void) {
