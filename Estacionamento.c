@@ -16,8 +16,9 @@
 // Assinatura das funções //
 ////////////////////////////
 
-void telaInicio(void);
-void telaCliente(void);
+char telaInicio(void);
+void moduloCliente(void);
+char telaCliente(void);
 void telaCadastrar(void);
 void telaPesquisar(void);
 void telaAtualizar(void);
@@ -90,7 +91,7 @@ int main(void) {
 // Funções //
 /////////////
 
-void telaInicio(void) {
+char telaInicio(void) {
     char menu;
     
     printf("\n");
@@ -106,7 +107,8 @@ void telaInicio(void) {
     printf("///               2 -  Tabela de Valores                                              ///\n");
     printf("///               3 -  Aluguel                                                        ///\n");
     printf("///               4 -  Gestão                                                         ///\n");
-    printf("///               5 -  Sair                                                           ///\n");
+    printf("///               5 -  Sobre                                                          ///\n");
+    printf("///               0 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
     scanf("%c", &menu);
@@ -115,6 +117,7 @@ void telaInicio(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return menu;
 }
 
 ///////////////////////////////////////
@@ -138,7 +141,7 @@ void moduloCliente(void) {
     } while (cli != '0');
 }
 
-void telaCliente(void) {
+char telaCliente(void) {
     char cli;
     
     printf("\n");
@@ -154,7 +157,7 @@ void telaCliente(void) {
     printf("///               2 -  Pesquisar dados do cliente                                     ///\n");
     printf("///               3 -  Atualizar dados do cliente                                     ///\n");
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
-    printf("///               5 -  Voltar ao Menu                                                 ///\n");
+    printf("///               0 -  Voltar ao Menu                                                 ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
     scanf("%c", &cli);
@@ -163,6 +166,7 @@ void telaCliente(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cli;
 }
 
 void telaCadastrar(void) {
