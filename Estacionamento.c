@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 ////////////////////////////
 // Assinatura das funções //
@@ -24,6 +25,7 @@ void telaPesquisar(void);
 void telaAtualizar(void);
 void telaExcluir(void);
 void telaValores(void);
+void moduloAluguel(void);
 void telaAluguel(void);
 void telaVagas(void);
 void telaAlugando(void);
@@ -50,9 +52,9 @@ int main(void) {
         switch(menu) {
             case '1':   moduloCliente();
                         break;
-            case '2':   //telaValores();
+            case '2':   telaValores();
                         break;
-            case '3':   //telaAluguel();
+            case '3':   moduloAluguel();
                         break;
             case '4':   //telaGestao();
                         break;
@@ -126,7 +128,9 @@ char telaInicio(void) {
 
 void moduloCliente(void) {
     char cli;
+    char menu;
     do {
+        menu = telaInicio();
         cli = telaCliente();
         switch(cli) {
             case '1': 	telaCadastrar();
@@ -138,7 +142,7 @@ void moduloCliente(void) {
             case '4': 	telaExcluir();
                         break;
         } 		
-    } while (cli != '0');
+    } while (menu != '0');
 }
 
 char telaCliente(void) {
@@ -312,6 +316,25 @@ void telaValores(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+}
+
+///////////////////////////////////////
+////// Funções do Módulo Aluguel //////
+///////////////////////////////////////
+
+void moduloAluguel(void) {
+    char alug;
+    char menu;
+    do {
+        menu = telaInicio();
+        alug = telaAluguel();
+        switch(alug) {
+            case '1': 	telaVagas();
+                        break;
+            case '2': 	telaAlugando();
+                        break;
+        } 		
+    } while (menu != '0');
 }
 
 void telaAluguel(void) {
