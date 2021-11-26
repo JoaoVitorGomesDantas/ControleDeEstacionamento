@@ -26,10 +26,10 @@ void telaAtualizar(void);
 void telaExcluir(void);
 void telaValores(void);
 void moduloAluguel(void);
-void telaAluguel(void);
+char telaAluguel(void);
 void telaVagas(void);
 void telaAlugando(void);
-void telaGestao(void);
+char telaGestao(void);
 void telaFuncionarios(void);
 void telaCadastrarFunc(void);
 void telaPesquisarFunc(void);
@@ -337,7 +337,8 @@ void moduloAluguel(void) {
     } while (menu != '0');
 }
 
-void telaAluguel(void) {
+char telaAluguel(void) {
+    char alug;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -350,14 +351,16 @@ void telaAluguel(void) {
     printf("///                                                                                   ///\n");
     printf("///               1 -  Vagas                                                          ///\n");
     printf("///               2 -  Aluguel                                                        ///\n");
-    printf("///               3 -  Sair                                                           ///\n");
+    printf("///               0 -  Voltar para meunu principal                                    ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
+    scanf("%c", &alug);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return alug;
 }
 
 void telaVagas(void) {
@@ -385,6 +388,15 @@ void telaVagas(void) {
 }
 
 void telaAlugando(void) {
+    char nome[61];
+    char cpf[14];
+    char dte[11];
+    char dts[11];
+    char tpvei[40];
+    char mdvei[40];
+    char placa[12];
+    char valor[12];
+
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -397,16 +409,24 @@ void telaAlugando(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Nome do cliente:                                                         ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
     printf("///          CPF:                                                                     ///\n");
+    scanf("%[0-9]", cpf);
     printf("///          Data de entrada:                                                         ///\n");
+    scanf("%[0-9]/", dte);
     printf("///          Data de saída:                                                           ///\n");
+    scanf("%[0-9]/", dts);
     printf("///          Tipo do veículo:                                                         ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tpvei);
     printf("///          Modelo do veículo:                                                       ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", mdvei);
     printf("///          Placa do veículo:                                                        ///\n");
+    scanf("%[A-Za-z0-9]", placa);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
-    printf("///       Valor total do aluguel:                                                     ///\n");
+    printf("///       Valor total do aluguel: R$                                                  ///\n");
+    scanf("%[0-9],.", valor);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -414,7 +434,8 @@ void telaAlugando(void) {
     getchar();
 }
 
-void telaGestao(void) {
+char telaGestao(void) {
+    char gest;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -428,17 +449,20 @@ void telaGestao(void) {
     printf("///               1 -  Funcionários                                                   ///\n");
     printf("///               2 -  Fluxo financeiro                                               ///\n");
     printf("///               3 -  Controle de vagas                                              ///\n");
-    printf("///               4 -  Sair                                                           ///\n");
+    printf("///               0 -  Voltar para o menu principal                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
+    scanf("%c", &gest);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return gest;
 }
 
-void telaFuncionarios(void) {
+char telaFuncionarios(void) {
+    char func;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -453,17 +477,27 @@ void telaFuncionarios(void) {
     printf("///               2 -  Pesquisar dados do funcionário                                 ///\n");
     printf("///               3 -  Atualizar dados do funcionário                                 ///\n");
     printf("///               4 -  Excluir funcionário do sistema                                 ///\n");
-    printf("///               5 -  Voltar ao Menu                                                 ///\n");
+    printf("///               0 -  Voltar ao Menu principal                                       ///\n");
     printf("///                                                                                   ///\n");
     printf("///            Escolha a opção que você deseja:                                       ///\n");
+    scanf("%c", &func);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return func;
 }
 
 void telaCadastrarFunc(void) {
+    char nome[61];
+    char cpf[14];
+    char rg[14];
+    char nasc[11];
+    char end[61];
+    char email[61];
+    char fone[12];
+    char idenf[14];
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -476,16 +510,24 @@ void telaCadastrarFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Nome:                                                                    ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
     printf("///          CPF:                                                                     ///\n");
+    scanf("%[0-9]", cpf);
     printf("///          RG:                                                                      ///\n");
+    scanf("%[0-9]", rg);
     printf("///          Data de nascimento:                                                      ///\n");
+    scanf("%[0-9]/", nasc);
     printf("///          Endereço:                                                                ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", end);
     printf("///          Email:                                                                   ///\n");
+    scanf("%[A-Za-z@._]", email);
     printf("///          Telefone:                                                                ///\n");
+    scanf("%[0-9- ]", fone);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
     printf("///       Número de identificação do funcionário:                                     ///\n");
+    scanf("%[0-9]", idenf);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -493,7 +535,9 @@ void telaCadastrarFunc(void) {
     getchar();
 }
 
+
 void telaPesquisarFunc(void) {
+    char idenf;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -506,6 +550,7 @@ void telaPesquisarFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o número de idenfiticação:                                       ///\n");
+    scanf("%[0-9]", &idenf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -518,6 +563,7 @@ void telaPesquisarFunc(void) {
 }
 
 void telaAtualizarFunc(void) {
+    char idenf;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -530,6 +576,7 @@ void telaAtualizarFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o número de idenfiticação:                                       ///\n");
+    scanf("%[0-9]", &idenf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -542,6 +589,7 @@ void telaAtualizarFunc(void) {
 }
 
 void telaExcluirFunc(void) {
+    char idenf;
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -553,7 +601,8 @@ void telaExcluirFunc(void) {
     printf("///              ================= Excluir Funcionário =================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o número de idenfiticação:                                       ///\n");
+    printf("///          Informe o número de identificação:                                       ///\n");
+    scanf("%[0-9]", &idenf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
