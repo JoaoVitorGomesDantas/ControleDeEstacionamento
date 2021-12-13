@@ -37,6 +37,7 @@ void moduloCliente(void) {
 char telaCliente(void) {
     char opc;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -72,6 +73,7 @@ void telaCadastrar(void) {
     char placa[10];
     char cor[15];
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -84,20 +86,36 @@ void telaCadastrar(void) {
     printf("///                                                                                   ///\n");
     printf("///          Nome do cliente:                                                         ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+    getchar();
+
     printf("///          CPF:                                                                     ///\n");
-    scanf("%[0-9]", cpf);
+    scanf("%[0-9].", cpf);
+    getchar();
+
     printf("///          Data de nascimento:                                                      ///\n");
     scanf("%[0-9]/", nasc);
+
+
     printf("///          Email:                                                                   ///\n");
     scanf("%[A-Za-z@._]", email);
+    getchar();
+
     printf("///          Telefone:                                                                ///\n");
     scanf("%[0-9]", fone);
+    getchar();
+
     printf("///          Veículo:                                                                 ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", veic);
+    getchar();
+
     printf("///          Placa do veículo:                                                        ///\n");
     scanf("%[A-Za-z0-9]", placa);
+    getchar();
+
     printf("///          Cor do veículo:                                                          ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cor);
+    getchar();
+
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -108,6 +126,7 @@ void telaCadastrar(void) {
 void telaPesquisar(void) {
     char cpf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -134,6 +153,7 @@ void telaPesquisar(void) {
 void telaAtualizar(void) {
     char cpf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -160,6 +180,7 @@ void telaAtualizar(void) {
 void telaExcluir(void) {
     char cpf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
