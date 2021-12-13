@@ -34,6 +34,7 @@ void moduloFuncionarios(void) {
 char telaFuncionarios(void) {
     char opc;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -69,6 +70,7 @@ void telaCadastrarFunc(void) {
     char fone[12];
     char idenf[14];
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -108,6 +110,7 @@ void telaCadastrarFunc(void) {
 void telaPesquisarFunc(void) {
     char idenf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -134,6 +137,7 @@ void telaPesquisarFunc(void) {
 void telaAtualizarFunc(void) {
     char idenf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -160,6 +164,7 @@ void telaAtualizarFunc(void) {
 void telaExcluirFunc(void) {
     char idenf;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
