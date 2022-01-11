@@ -60,7 +60,9 @@ char telaFuncionarios(void) {
     return opc;
 }
 
-void telaCadastrarFunc(void) {
+typedef struct funcionario Funcionario;
+
+struct funcionario {
     char nome[61];
     char cpf[14];
     char rg[14];
@@ -69,6 +71,12 @@ void telaCadastrarFunc(void) {
     char email[61];
     char fone[12];
     char idenf[14];
+};
+
+void telaCadastrarFunc(void) {
+    Funcionario* func;
+    func = (Funcionario*) malloc(sizeof(Funcionario));
+
 
     system("clear||cls");
     printf("\n");
@@ -82,24 +90,24 @@ void telaCadastrarFunc(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Nome:                                                                    ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->nome);
     printf("///          CPF:                                                                     ///\n");
-    scanf("%[0-9]", cpf);
+    scanf("%[0-9]", func->cpf);
     printf("///          RG:                                                                      ///\n");
-    scanf("%[0-9]", rg);
+    scanf("%[0-9]", func->rg);
     printf("///          Data de nascimento:                                                      ///\n");
-    scanf("%[0-9]/", nasc);
+    scanf("%[0-9]/", func->nasc);
     printf("///          Endereço:                                                                ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", end);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->end);
     printf("///          Email:                                                                   ///\n");
-    scanf("%[A-Za-z@._]", email);
+    scanf("%[A-Za-z@._]", func->email);
     printf("///          Telefone:                                                                ///\n");
-    scanf("%[0-9- ]", fone);
+    scanf("%[0-9- ]", func->fone);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                                   ///\n");
     printf("///       Número de identificação do funcionário:                                     ///\n");
-    scanf("%[0-9]", idenf);
+    scanf("%[0-9]", func->idenf);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
