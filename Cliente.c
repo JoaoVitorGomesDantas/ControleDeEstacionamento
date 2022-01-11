@@ -63,15 +63,22 @@ char telaCliente(void) {
     return opc;
 }
 
+typedef struct cliente Cliente;
+
+struct cliente {
+  char nome[61];
+  char cpf[14];
+  char nasc[11];
+  char email[61];
+  char fone[12];
+  char veic[30];
+  char placa[10];
+  char cor[15];
+};
+
 void telaCadastrar(void) {
-    char nome[61];
-    char cpf[14];
-    char nasc[11];
-    char email[61];
-    char fone[12];
-    char veic[30];
-    char placa[10];
-    char cor[15];
+    Cliente* cli;
+    cli = (Cliente*) malloc(sizeof(Cliente));
 
     system("clear||cls");
     printf("\n");
@@ -85,35 +92,35 @@ void telaCadastrar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Nome do cliente:                                                         ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
     getchar();
 
     printf("///          CPF:                                                                     ///\n");
-    scanf("%[0-9].", cpf);
+    scanf("%[0-9].", cli->cpf);
     getchar();
 
     printf("///          Data de nascimento:                                                      ///\n");
-    scanf("%[0-9]/", nasc);
+    scanf("%[0-9]/", cli->nasc);
 
 
     printf("///          Email:                                                                   ///\n");
-    scanf("%[A-Za-z@._]", email);
+    scanf("%[A-Za-z@._]", cli->email);
     getchar();
 
     printf("///          Telefone:                                                                ///\n");
-    scanf("%[0-9]", fone);
+    scanf("%[0-9]", cli->fone);
     getchar();
 
     printf("///          Veículo:                                                                 ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", veic);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->veic);
     getchar();
 
     printf("///          Placa do veículo:                                                        ///\n");
-    scanf("%[A-Za-z0-9]", placa);
+    scanf("%[A-Za-z0-9]", cli->placa);
     getchar();
 
     printf("///          Cor do veículo:                                                          ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cor);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->cor);
     getchar();
 
     printf("///                                                                                   ///\n");
