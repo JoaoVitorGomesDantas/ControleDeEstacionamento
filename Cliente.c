@@ -17,6 +17,8 @@
 ////// Funções do Módulo Cliente //////
 ///////////////////////////////////////
 
+typedef struct cliente Cliente;
+
 void moduloCliente(void) {
     char opc;
     do {
@@ -32,6 +34,26 @@ void moduloCliente(void) {
                         break;
         } 		
     } while (opc != '0');
+}
+
+void cadastrarCliente(void) {
+	Cliente *cli;
+
+	cli = telaCadastrar();
+	salvarCliente(cli);
+	free(cli);
+}
+
+
+void pesquisarCliente(void) {
+	Cliente* cli;
+	char* cpf;
+
+	cpf = telaPesquisar();
+	cli = buscarCliente(cpf);
+	exibirCliente(cli);
+	free(cli); 
+	free(cpf);
 }
 
 char telaCliente(void) {
@@ -63,7 +85,30 @@ char telaCliente(void) {
     return opc;
 }
 
-typedef struct cliente Cliente;
+void telaErroArquivoCliente(void) {
+
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                                   ///\n");
+	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
+    printf("///                                                                                   ///\n");
+	printf("///                                  Ocorreu em erro!                                 ///\n");
+	printf("///                        Não foi possível acessar o arquivo                         ///\n");
+	printf("///                         com informações sobre os alunos.                          ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
+	printf("///                        mas este programa será finalizado!                         ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n\nTecle ENTER para continuar!\n\n");
+	getchar();
+	exit(1);
+}
 
 struct cliente {
   char nome[61];
@@ -210,3 +255,53 @@ void telaExcluir(void) {
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
+
+void salvarCliente(Cliente* cli) {
+  FILE* fp;
+
+  fp = fopen("cliente.dat", "at");
+  if (fp == NULL){
+    telaErroArquivoCliente(); 
+  }
+  fwrite(cli, sizeof(Cliente), 1, fp);
+  fclose(fp);
+}
+
+Cliente* buscarCliente(char* cpf) {
+	FILE* fp;
+	Cliente* cli;
+
+	cli = (Cliente*) malloc(sizeof(Cliente));
+	fp = fopen("cliente.dat", "rt");
+	if (fp == NULL) {
+		telaErroArquivoCliente();
+	}
+	while(fread(cli, sizeof(Cliente), 1, fp)) {
+		if (strcmp(cli->cpf, cpf) == 0) {
+			fclose(fp);
+			return cli;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
+
+void exibirCliente(Cliente* cli) {
+
+	if (cli == NULL) {
+		printf("\n= = = Cliente Inexistente = = =\n");
+	} else {
+		printf("\n= = = Cliente Cadastrado = = =\n");
+		printf("Nome do cliente: %s\n", cli->nome);
+		printf("CPF: %s\n", cli->cpf);
+		printf("Data de nascimento: %s\n", cli->nasc);
+		printf("Email: %s\n", cli->email);
+		printf("Telefone: %s\n", cli->fone);
+		printf("Veículo: %s\n", cli->veic);
+    printf("Placa do veículo: %s\n", cli->placa);
+    printf("Cor do veículo: %s\n", cli->cor);
+	}
+	printf("\n\nTecle ENTER para continuar!\n\n");
+	getchar();
+}
+
