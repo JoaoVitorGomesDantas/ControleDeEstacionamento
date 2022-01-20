@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include "Funcionarios.h"
 
+typedef struct funcionario Funcionario;
+
 void moduloFuncionarios(void) {
     char opc;
 
@@ -50,28 +52,15 @@ char telaFuncionarios(void) {
     printf("///               4 -  Excluir funcionário do sistema                                 ///\n");
     printf("///               0 -  Voltar ao Menu principal                                       ///\n");
     printf("///                                                                                   ///\n");
-    printf("///            Escolha a opção que você deseja:                                       ///\n");
-    scanf("%c", &opc);
-    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
     return opc;
 }
-
-typedef struct funcionario Funcionario;
-
-struct funcionario {
-    char nome[61];
-    char cpf[14];
-    char rg[14];
-    char nasc[11];
-    char end[61];
-    char email[61];
-    char fone[12];
-    char idenf[14];
-};
 
 void telaCadastrarFunc(void) {
     Funcionario* func;
