@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "Cliente.h"
+#include "Validar.h"
 
 ///////////////////////////////////////
 ////// Funções do Módulo Cliente //////
@@ -24,9 +25,9 @@ void moduloCliente(void) {
     do {
         opc = telaCliente();
         switch(opc) {
-            case '1': 	telaCadastrar();
+            case '1': 	cadastrarCliente();
                         break;
-            case '2': 	telaPesquisar();
+            case '2': 	pesquisarCliente();
                         break;
             case '3': 	telaAtualizar();
                         break;
@@ -109,17 +110,6 @@ void telaErroArquivoCliente(void) {
 	getchar();
 	exit(1);
 }
-
-struct cliente {
-  char nome[61];
-  char cpf[14];
-  char nasc[11];
-  char email[61];
-  char fone[12];
-  char veic[30];
-  char placa[10];
-  char cor[15];
-};
 
 void telaCadastrar(void) {
     Cliente* cli;
@@ -277,7 +267,7 @@ Cliente* buscarCliente(char* cpf) {
 		telaErroArquivoCliente();
 	}
 	while(fread(cli, sizeof(Cliente), 1, fp)) {
-		if (strcmp(cli->cpf, cpf) == 0) {
+		if (cli->cpf == cpf) {
 			fclose(fp);
 			return cli;
 		}
