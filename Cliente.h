@@ -8,16 +8,29 @@
 ///                  Developed by @joaovitorgd - Out, 2021                  ///
 ///////////////////////////////////////////////////////////////////////////////
 
+typedef struct cliente Cliente;
+
+struct cliente {
+  char nome[61];
+  char cpf[14];
+  char nasc[11];
+  char email[61];
+  char fone[12];
+  char veic[30];
+  char placa[10];
+  char cor[15];
+};
+
 void cadastrarCliente(void);
 void pesquisarCliente(void);
 
 void moduloCliente(void);
 char telaCliente(void);
-void telaCadastrar(void);
-void telaPesquisar(void);
-void telaAtualizar(void);
-void telaExcluir(void);
+char telaCadastrar(void);
+char* telaPesquisar(void);
+char* telaAtualizar(void);
+char* telaExcluir(void);
 
-void salvarCliente(Cliente* cli);
-Cliente* buscarCliente(char* cpf);
-void exibirCliente(Cliente* cli);
+void salvarCliente(Cliente*);
+Cliente* buscarCliente(char*);
+void exibirCliente(Cliente*);
