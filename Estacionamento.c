@@ -61,8 +61,9 @@ int main(void) {
 /////////////
 
 char telaInicio(void) {
-    char menu;
-    
+    char opc;
+
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -79,14 +80,14 @@ char telaInicio(void) {
     printf("///               5 -  Sobre                                                          ///\n");
     printf("///               0 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
-    printf("///            Escolha a opção que você deseja:                                       ///\n");
-    scanf("%c", &menu);
-    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
-    return menu;
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
+    printf("\n");
+    printf("\t\t\t<<< ... Aguarde ... >>>\n");
+    sleep(1);
+    return opc;
 }
 
 void telaValores(void) {
@@ -104,7 +105,6 @@ void telaValores(void) {
     printf("///         Motocicletas             |R$   2,50     10,00   30,00      100,00         ///\n");
     printf("///         Carros de pequeno porte  |R$   5,00     20,00   60,00      200,00         ///\n");
     printf("///         Carros de grande porte   |R$   7,50     30,00   90,00      300,00         ///\n");
-    printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
