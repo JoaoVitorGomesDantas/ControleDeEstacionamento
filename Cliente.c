@@ -45,7 +45,6 @@ void cadastrarCliente(void) {
 	free(cli);
 }
 
-
 void pesquisarCliente(void) {
 	Cliente* cli;
 	char* cpf;
@@ -76,43 +75,43 @@ char telaCliente(void) {
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
     printf("///               0 -  Voltar ao Menu principal                                       ///\n");
     printf("///                                                                                   ///\n");
-    printf("///            Escolha a opção que você deseja:                                       ///\n");
-    scanf("%c", &opc);
-    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
+    printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+    sleep(1);
     return opc;
 }
 
 void telaErroArquivoCliente(void) {
 
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
     printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
     printf("///              =======================================================              ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                                   ///\n");
-	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
     printf("///                                                                                   ///\n");
-	printf("///                                  Ocorreu em erro!                                 ///\n");
-	printf("///                        Não foi possível acessar o arquivo                         ///\n");
-	printf("///                         com informações sobre os alunos.                          ///\n");
-	printf("///                                                                                   ///\n");
-	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
-	printf("///                        mas este programa será finalizado!                         ///\n");
-	printf("///                                                                                   ///\n");
-	printf("///                                                                                   ///\n");
+    printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                  Ocorreu um erro!                                 ///\n");
+    printf("///                      Não foi possível acessar o arquivo com                       ///\n");
+    printf("///                          informações sobre os clientes.                           ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
+    printf("///                        mas este programa será finalizado!                         ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n\nTecle ENTER para continuar!\n\n");
-	getchar();
-	exit(1);
+    printf("\n\nTecle ENTER para continuar!\n\n");
+    getchar();
+    exit(1);
 }
 
-void telaCadastrar(void) {
-    Cliente* cli;
+char telaCadastrar(void) {
+    Cliente *cli;
     cli = (Cliente*) malloc(sizeof(Cliente));
 
     system("clear||cls");
@@ -126,25 +125,32 @@ void telaCadastrar(void) {
     printf("///              ================== Cadastrar Cliente ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Nome do cliente:                                                         ///\n");
+    do {
+      printf("///          Nome do cliente:                                                         ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
     getchar();
+    } while (!validarNome(cli->nome));
 
-    printf("///          CPF:                                                                     ///\n");
+    do {
+      printf("///          CPF (apenas números):                                                    ///\n");
     scanf("%[0-9].", cli->cpf);
     getchar();
+    } while (!validarCPF(cli->cpf));
 
     printf("///          Data de nascimento:                                                      ///\n");
     scanf("%[0-9]/", cli->nasc);
+    getchar();
 
 
     printf("///          Email:                                                                   ///\n");
     scanf("%[A-Za-z@._]", cli->email);
     getchar();
 
-    printf("///          Telefone:                                                                ///\n");
+    do {
+      printf("///          Telefone (apenas número com DDD):                                        ///\n");
     scanf("%[0-9]", cli->fone);
     getchar();
+    } while (!validaTelefone(cli->fone));
 
     printf("///          Veículo:                                                                 ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->veic);
@@ -163,10 +169,12 @@ void telaCadastrar(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    exit(1);
 }
 
-void telaPesquisar(void) {
-    char cpf;
+char* telaPesquisar(void) {
+    char* cpf;
+    cpf = (char*) malloc(14*sizeof(char));
 
     system("clear||cls");
     printf("\n");
@@ -180,7 +188,7 @@ void telaPesquisar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o CPF:                                                           ///\n");
-    scanf("%[0-9]", &cpf);
+    scanf("%[0-9].", cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -190,10 +198,12 @@ void telaPesquisar(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cpf;
 }
 
-void telaAtualizar(void) {
-    char cpf;
+char* telaAtualizar(void) {
+    char* cpf;
+    cpf = (char*) malloc(14*sizeof(char));
 
     system("clear||cls");
     printf("\n");
@@ -207,7 +217,7 @@ void telaAtualizar(void) {
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///          Informe o CPF:                                                           ///\n");
-    scanf("%[0-9]", &cpf);
+    scanf("%[0-9].", cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -217,33 +227,36 @@ void telaAtualizar(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cpf;
 }
 
-void telaExcluir(void) {
-    char cpf;
+char* telaExcluir(void) {
+  char* cpf;
+  cpf = (char*) malloc(14*sizeof(char));
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              =================== Excluir Cliente ===================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///          Informe o CPF:                                                           ///\n");
-    scanf("%[0-9]", &cpf);
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+  system("clear||cls");
+  printf("\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///              =======================================================              ///\n");
+  printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  printf("///              =======================================================              ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                   ///\n");
+  printf("///              =================== Excluir Cliente ===================              ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///          Informe o CPF:                                                           ///\n");
+  scanf("%[0-9].", cpf);
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  getchar();
+  return cpf;
 }
 
 void salvarCliente(Cliente* cli) {
