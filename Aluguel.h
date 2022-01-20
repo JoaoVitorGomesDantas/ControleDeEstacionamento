@@ -9,6 +9,20 @@
 ///                  Developed by @joaovitorgd - Out, 2021                  ///
 ///////////////////////////////////////////////////////////////////////////////
 
+
+typedef struct aluguel Aluguel;
+
+struct aluguel {
+  char nome[61];
+  char cpf[14];
+  char dte[11];
+  char dts[11];
+  char tpvei[40];
+  char mdvei[40];
+  char placa[12];
+  char valor[12];
+};
+
 void moduloAluguel(void);
 char telaAluguel(void);
 void telaVagas(void);
