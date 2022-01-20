@@ -31,9 +31,11 @@ int validaNumero (char n) {
 char validaLetra (char nome) {
     if (nome >= 'a' && nome <= 'z') {
       return 1;
+    } else if (nome >= 'A' && nome <= 'Z'){
+      return 1;
     } else {
       return 0;
-  }
+    }
 }
 
 /// Validar número de telefone
@@ -66,4 +68,15 @@ int validaCPF (char* cpf) {
     }
   }
   return 1;
+}
+
+/// Validar Nome
+
+int validarNome(char* nome) {
+  for (int i=0; nome[i]!='\0'; i++) {
+    if (!validaLetra(nome[i])) {
+      return 0;
+    }
+  }
+	return 1;
 }
