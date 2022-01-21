@@ -18,12 +18,11 @@ struct funcionario {
     char end[61];
     char email[61];
     char fone[12];
-    char idenf[14];
 };
 
 void moduloFuncionarios(void);
 char telaFuncionarios(void);
-void telaCadastrarFunc(void);
-void telaPesquisarFunc(void);
-void telaAtualizarFunc(void);
-void telaExcluirFunc(void);
+char telaCadastrarFunc(void);
+char* telaPesquisarFunc(void);
+char* telaAtualizarFunc(void);
+char* telaExcluirFunc(void);
