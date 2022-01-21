@@ -62,10 +62,9 @@ char telaFuncionarios(void) {
     return opc;
 }
 
-void telaCadastrarFunc(void) {
+char telaCadastrarFunc(void) {
     Funcionario* func;
     func = (Funcionario*) malloc(sizeof(Funcionario));
-
 
     system("clear||cls");
     printf("\n");
@@ -78,10 +77,19 @@ void telaCadastrarFunc(void) {
     printf("///              ================ Cadastrar Funcionário ================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Nome:                                                                    ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->nome);
-    printf("///          CPF:                                                                     ///\n");
-    scanf("%[0-9]", func->cpf);
+    
+    do {
+      printf("///          Nome:                                                                    ///\n");
+      scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->nome);
+      getchar();
+    } while (!validarNome(func->nome));
+
+    do {
+      printf("///          CPF (apenas números):                                                    ///\n");
+      scanf("%[0-9].", func->cpf);
+      getchar();
+    } while (!validarCPF(func->cpf));
+
     printf("///          RG:                                                                      ///\n");
     scanf("%[0-9]", func->rg);
     printf("///          Data de nascimento:                                                      ///\n");
@@ -90,22 +98,26 @@ void telaCadastrarFunc(void) {
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->end);
     printf("///          Email:                                                                   ///\n");
     scanf("%[A-Za-z@._]", func->email);
+
+    do {
+      printf("///          Telefone (apenas número com DDD):                                        ///\n");
+      scanf("%[0-9]", func->fone);
+      getchar();
+    } while (!validaTelefone(func->fone));
+
     printf("///          Telefone:                                                                ///\n");
     scanf("%[0-9- ]", func->fone);
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///       Número de identificação do funcionário:                                     ///\n");
-    scanf("%[0-9]", func->idenf);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    exit(1);
 }
 
-void telaPesquisarFunc(void) {
-    char idenf;
+char* telaPesquisarFunc(void) {
+    char* cpf;
+    cpf = (char*) malloc(14*sizeof(cpf));
 
     system("clear||cls");
     printf("\n");
@@ -118,8 +130,8 @@ void telaPesquisarFunc(void) {
     printf("///              ================ Pesquisar Funcionário ================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o número de idenfiticação:                                       ///\n");
-    scanf("%[0-9]", &idenf);
+    printf("///          Informe o CPF do funcionário:                                            ///\n");
+    scanf("%[0-9]", cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -129,10 +141,12 @@ void telaPesquisarFunc(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cpf;
 }
 
-void telaAtualizarFunc(void) {
-    char idenf;
+char* telaAtualizarFunc(void) {
+    char* cpf;
+    cpf = (char*) malloc(14*sizeof(cpf));
 
     system("clear||cls");
     printf("\n");
@@ -145,8 +159,8 @@ void telaAtualizarFunc(void) {
     printf("///              ================ Atualizar Funcionário ================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o número de idenfiticação:                                       ///\n");
-    scanf("%[0-9]", &idenf);
+    printf("///          Informe o CPF do funcionário:                                            ///\n");
+    scanf("%[0-9]", cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -156,10 +170,12 @@ void telaAtualizarFunc(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cpf;
 }
 
-void telaExcluirFunc(void) {
-    char idenf;
+char* telaExcluirFunc(void) {
+    char* cpf;
+    cpf = (char*) malloc(14*sizeof(cpf));
 
     system("clear||cls");
     printf("\n");
@@ -172,8 +188,8 @@ void telaExcluirFunc(void) {
     printf("///              ================= Excluir Funcionário =================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o número de identificação:                                       ///\n");
-    scanf("%[0-9]", &idenf);
+    printf("///          Informe o CPF do funcionário:                                            ///\n");
+    scanf("%[0-9]", cpf);
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -183,5 +199,6 @@ void telaExcluirFunc(void) {
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+    return cpf;
 }
 
