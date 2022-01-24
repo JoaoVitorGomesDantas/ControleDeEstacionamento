@@ -10,5 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
+void moduloSobre(void);
+char telaSobre(void);
 void telaInfo(void);
 void telaCriacao(void);
