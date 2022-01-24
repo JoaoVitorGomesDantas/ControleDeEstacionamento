@@ -19,14 +19,17 @@ struct cliente {
   char veic[30];
   char placa[10];
   char cor[15];
+  int status;
 };
 
 void cadastrarCliente(void);
 void pesquisarCliente(void);
+void atualizarCliente(void);
+void excluirCliente(void);
 
 void moduloCliente(void);
 char telaCliente(void);
-char telaCadastrar(void);
+Cliente* telaCadastrar(void);
 char* telaPesquisar(void);
 char* telaAtualizar(void);
 char* telaExcluir(void);
@@ -34,3 +37,4 @@ char* telaExcluir(void);
 void salvarCliente(Cliente*);
 Cliente* buscarCliente(char*);
 void exibirCliente(Cliente*);
+void regravarCliente(Cliente*);
