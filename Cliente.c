@@ -29,9 +29,9 @@ void moduloCliente(void) {
                         break;
             case '2': 	pesquisarCliente();
                         break;
-            case '3': 	telaAtualizar();
+            case '3': 	atualizarCliente();
                         break;
-            case '4': 	telaExcluir();
+            case '4': 	excluirCliente();
                         break;
         } 		
     } while (opc != '0');
@@ -41,7 +41,7 @@ void cadastrarCliente(void) {
 	Cliente *cli;
 
 	cli = telaCadastrar();
-	salvarCliente(cli);
+  salvarCliente(cli);
 	free(cli);
 }
 
@@ -53,6 +53,40 @@ void pesquisarCliente(void) {
 	cli = buscarCliente(cpf);
 	exibirCliente(cli);
 	free(cli); 
+	free(cpf);
+}
+
+void atualizarCliente(void) {
+	Cliente* cli;
+	char* cpf;
+
+	cpf = telaAtualizar();
+	cli = buscarCliente(cpf);
+	if (cli == NULL) {
+    	printf("\n\nAluno não encontrado!\n\n");
+  	} else {
+		  cli = telaCadastrar();
+		  strcpy(cli->cpf, cpf);
+		  regravarCliente(cli);
+		  free(cli);
+	}
+	free(cpf);
+}
+
+void excluirCliente(void) {
+	Cliente* cli;
+	char *cpf;
+
+	cpf = telaExcluir();
+	cli = (Cliente*) malloc(sizeof(Cliente));
+	cli = buscarCliente(cpf);
+	if (cli == NULL) {
+    	printf("\n\nAluno não encontrado!\n\n");
+  	} else {
+		  cli->status = False;
+		  regravarCliente(cli);
+		  free(cli);
+	}
 	free(cpf);
 }
 
@@ -110,7 +144,7 @@ void telaErroArquivoCliente(void) {
     exit(1);
 }
 
-char telaCadastrar(void) {
+Cliente* telaCadastrar(void) {
     Cliente *cli;
     cli = (Cliente*) malloc(sizeof(Cliente));
 
@@ -127,29 +161,30 @@ char telaCadastrar(void) {
     printf("///                                                                                   ///\n");
     do {
       printf("///          Nome do cliente:                                                         ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
-    getchar();
+      scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
+      getchar();
     } while (!validarNome(cli->nome));
 
     do {
       printf("///          CPF (apenas números):                                                    ///\n");
-    scanf("%[0-9].", cli->cpf);
-    getchar();
+      scanf("%[0-9].", cli->cpf);
+      getchar();
     } while (!validarCPF(cli->cpf));
 
-    printf("///          Data de nascimento:                                                      ///\n");
+    do {
+      printf("///          Data de nascimento (dd/mm/aaaa):                                           ///\n");
     scanf("%[0-9]/", cli->nasc);
     getchar();
+    } while (!validarData(cli->nasc));
 
-
-    printf("///          Email:                                                                   ///\n");
-    scanf("%[A-Za-z@._]", cli->email);
+    printf("///          Email:                                                                     ///\n");
+    scanf("%[@A-Za-z._]", cli->email);
     getchar();
 
     do {
       printf("///          Telefone (apenas número com DDD):                                        ///\n");
-    scanf("%[0-9]", cli->fone);
-    getchar();
+      scanf("%[0-9]", cli->fone);
+      getchar();
     } while (!validaTelefone(cli->fone));
 
     printf("///          Veículo:                                                                 ///\n");
@@ -164,12 +199,14 @@ char telaCadastrar(void) {
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->cor);
     getchar();
 
+    cli->status = True;
+	
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
-    exit(1);
+    return cli;
 }
 
 char* telaPesquisar(void) {
@@ -262,7 +299,7 @@ char* telaExcluir(void) {
 void salvarCliente(Cliente* cli) {
   FILE* fp;
 
-  fp = fopen("cliente.dat", "at");
+  fp = fopen("cliente.dat", "ab");
   if (fp == NULL){
     telaErroArquivoCliente(); 
   }
@@ -275,18 +312,18 @@ Cliente* buscarCliente(char* cpf) {
 	Cliente* cli;
 
 	cli = (Cliente*) malloc(sizeof(Cliente));
-	fp = fopen("cliente.dat", "rt");
+	fp = fopen("cliente.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoCliente();
 	}
 	while(fread(cli, sizeof(Cliente), 1, fp)) {
-		if (cli->cpf == cpf) {
+    if ((strcmp(cli->cpf, cpf) == 0) && (cli->status == True)) {
 			fclose(fp);
 			return cli;
 		}
 	}
 	fclose(fp);
-	return NULL;
+	return cli;
 }
 
 void exibirCliente(Cliente* cli) {
@@ -308,3 +345,24 @@ void exibirCliente(Cliente* cli) {
 	getchar();
 }
 
+void regravarCliente(Cliente* cli) {
+	int achou;
+	FILE* fp;
+	Cliente* cliLido;
+
+	cliLido = (Cliente*) malloc(sizeof(Cliente));
+	fp = fopen("cliente.dat", "r+b");
+	if (fp == NULL) {
+		telaErroArquivoCliente();
+	}
+	achou = False;
+	while(fread(cliLido, sizeof(Cliente), 1, fp) && !achou) {
+		if (strcmp(cliLido->cpf, cli->cpf) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
+        	fwrite(cli, sizeof(Cliente), 1, fp);
+		}
+	}
+	fclose(fp);
+	free(cliLido);
+}
