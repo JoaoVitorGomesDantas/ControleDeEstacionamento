@@ -20,9 +20,14 @@ struct funcionario {
     char fone[12];
 };
 
+void cadastrarFuncionario(void);
+
 void moduloFuncionarios(void);
 char telaFuncionarios(void);
-char telaCadastrarFunc(void);
+void telaErroArquivoFuncionario(void);
+Funcionario* telaCadastrarFunc(void);
 char* telaPesquisarFunc(void);
 char* telaAtualizarFunc(void);
 char* telaExcluirFunc(void);
+
+void salvarFuncionario(Funcionario*);
