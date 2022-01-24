@@ -21,7 +21,7 @@ void moduloFuncionarios(void) {
     do {
         opc = telaFuncionarios();
         switch(opc) {
-            case '1': 	telaCadastrarFunc();
+            case '1': 	cadastrarFuncionario();
                         break;
             case '2': 	telaPesquisarFunc();
                         break;
@@ -31,6 +31,14 @@ void moduloFuncionarios(void) {
                         break;
         } 		
     } while (opc != '0');
+}
+
+void cadastrarFuncionario(void) {
+	Funcionario *func;
+
+	func = telaCadastrarFunc();
+    salvarFuncionario(func);
+	free(func);
 }
 
 char telaFuncionarios(void) {
@@ -62,7 +70,32 @@ char telaFuncionarios(void) {
     return opc;
 }
 
-char telaCadastrarFunc(void) {
+void telaErroArquivoFuncionario(void) {
+
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                                   ///\n");
+	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
+    printf("///                                                                                   ///\n");
+	printf("///                                  Ocorreu um erro!                                 ///\n");
+	printf("///                      Não foi possível acessar o arquivo com                       ///\n");
+	printf("///                          informações sobre os clientes.                           ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
+	printf("///                        mas este programa será finalizado!                         ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n\nTecle ENTER para continuar!\n\n");
+	getchar();
+	exit(1);
+}
+
+Funcionario* telaCadastrarFunc(void) {
     Funcionario* func;
     func = (Funcionario*) malloc(sizeof(Funcionario));
 
@@ -105,14 +138,13 @@ char telaCadastrarFunc(void) {
       getchar();
     } while (!validaTelefone(func->fone));
 
-    printf("///          Telefone:                                                                ///\n");
-    scanf("%[0-9- ]", func->fone);
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
     exit(1);
+    return func;
 }
 
 char* telaPesquisarFunc(void) {
@@ -202,3 +234,13 @@ char* telaExcluirFunc(void) {
     return cpf;
 }
 
+void salvarFuncionario(Funcionario* func) {
+  FILE* fp;
+
+  fp = fopen("funcionário.dat", "ab");
+  if (fp == NULL){
+    telaErroArquivoFuncionario(); 
+  }
+  fwrite(func, sizeof(Funcionario), 1, fp);
+  fclose(fp);
+}
