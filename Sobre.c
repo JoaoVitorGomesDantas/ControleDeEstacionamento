@@ -15,6 +15,46 @@
 #include "Sobre.h"
 
 
+void moduloSobre(void) {
+    char opc;
+    do {
+        opc = telaSobre();
+        switch(opc) {
+            case '1': 	telaInfo();
+                        break;
+            case '2': 	telaCriacao();
+                        break;
+        } 		
+    } while (opc != '0');
+}
+
+char telaSobre(void) {
+    char opc;
+
+    system("clear||cls");
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ========= Menu de Informações Sobre o Projeto =========              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///               1 -  Informações sobre o projeto                                    ///\n");
+    printf("///               2 -  Informações sobre o criador do projeto                         ///\n");
+    printf("///               0 -  Voltar ao Menu principal                                       ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
+    printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    sleep(1);
+    return opc;
+}
+
 void telaInfo(void) {
 
     system("clear||cls");
