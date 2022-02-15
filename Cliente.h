@@ -38,3 +38,8 @@ void salvarCliente(Cliente*);
 Cliente* buscarCliente(char*);
 void exibirCliente(Cliente*);
 void regravarCliente(Cliente*);
+
+void salvarCliente(Cliente*);
+Cliente* buscarCliente(char*);
+void exibirCliente(Cliente*);
+void regravarCliente(Cliente*);
