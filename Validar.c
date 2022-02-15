@@ -70,6 +70,22 @@ int validaCPF (char* cpf) {
   return 1;
 }
 
+/// Validar RG
+
+int validarRG (char* rg) {
+  int tam;
+  tam = strlen(rg);
+  if(tam != 7) {
+    return 0;
+  }
+  for (int i = 0; i < tam; i++) {
+    if (!validaNumero(rg[i])) {
+     return 0;
+    }
+  }
+  return 1;
+}
+
 /// Validar Nome
 
 int validarNome(char* nome) {
