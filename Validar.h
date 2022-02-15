@@ -15,6 +15,7 @@ int validaNumero (char);
 char validaLetra (char);
 int validaTelefone(char*);
 int validarCPF (char*);
+int validarRG (char*);
 int validarNome(char*);
 
 int ehBissexto(int);
