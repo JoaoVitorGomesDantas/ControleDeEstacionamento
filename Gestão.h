@@ -12,9 +12,10 @@
 
 void moduloGestao(void);
 char telaGestao(void);
+void moduloFluxoFinanceiro(void);
 char telaFluxoFinanceiro(void);
 void telaAnexarReceita(void);
 void telaAnexarVagas(void);
 void telaRelatorioSemanal(void);
 void telaRelatorioMensal(void);
-void telaControleVagas(void);
+char* telaControleVagas(void);
