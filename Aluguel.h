@@ -23,7 +23,9 @@ struct aluguel {
   char valor[12];
 };
 
+
 void moduloAluguel(void);
 char telaAluguel(void);
 void telaVagas(void);
 void telaAlugando(void);
+void telaValores(void);
