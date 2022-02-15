@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "Cliente.h"
 #include "Validar.h"
 
@@ -65,10 +66,11 @@ void atualizarCliente(void) {
 	if (cli == NULL) {
     	printf("\n\nAluno não encontrado!\n\n");
   	} else {
-		  cli = telaCadastrar();
-		  strcpy(cli->cpf, cpf);
-		  regravarCliente(cli);
-		  free(cli);
+		cli = telaCadastrar();
+		strcpy(cli->cpf, cpf);
+      		excluirCliente();
+      		cadastrarCliente();
+		free(cli);
 	}
 	free(cpf);
 }
@@ -114,34 +116,35 @@ char telaCliente(void) {
     printf("               Escolha a opção que você deseja:                                          \n");
     scanf("%c", &opc);
     printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    printf("\t\t\t>>>  Aguarde um momento...\n");
     sleep(1);
     return opc;
 }
 
 void telaErroArquivoCliente(void) {
 
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                  Ocorreu um erro!                                 ///\n");
-    printf("///                      Não foi possível acessar o arquivo com                       ///\n");
-    printf("///                          informações sobre os clientes.                           ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
-    printf("///                        mas este programa será finalizado!                         ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n\nTecle ENTER para continuar!\n\n");
-    getchar();
-    exit(1);
+	system("clear||cls");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+ 	printf("///              =======================================================              ///\n");
+ 	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+ 	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                                   ///\n");
+	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
+  	printf("///                                                                                   ///\n");
+	printf("///                                  Ocorreu um erro!                                 ///\n");
+	printf("///                      Não foi possível acessar o arquivo com                       ///\n");
+	printf("///                          informações sobre os clientes.                           ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
+	printf("///                        mas este programa será finalizado!                         ///\n");
+	printf("///                                                                                   ///\n");
+	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n\nTecle ENTER para continuar!\n\n");
+	getchar();
+	exit(1);
 }
 
 Cliente* telaCadastrar(void) {
@@ -172,13 +175,13 @@ Cliente* telaCadastrar(void) {
     } while (!validarCPF(cli->cpf));
 
     do {
-      printf("///          Data de nascimento (dd/mm/aaaa):                                           ///\n");
+      printf("///          Data de nascimento (dd/mm/aaaa):                                         ///\n");
     scanf("%[0-9]/", cli->nasc);
     getchar();
     } while (!validarData(cli->nasc));
 
     printf("///          Email:                                                                     ///\n");
-    scanf("%[@A-Za-z._]", cli->email);
+    scanf("%[@A-Za-z._0-9]", cli->email);
     getchar();
 
     do {
@@ -187,20 +190,24 @@ Cliente* telaCadastrar(void) {
       getchar();
     } while (!validaTelefone(cli->fone));
 
+    do {
     printf("///          Veículo:                                                                 ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->veic);
     getchar();
+    } while (!validarNome(cli->veic));
 
     printf("///          Placa do veículo:                                                        ///\n");
     scanf("%[A-Za-z0-9]", cli->placa);
     getchar();
 
+    do {
     printf("///          Cor do veículo:                                                          ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->cor);
     getchar();
+    } while (!validarNome(cli->cor));
 
     cli->status = True;
-	
+    
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -224,8 +231,12 @@ char* telaPesquisar(void) {
     printf("///              ================== Pesquisar Cliente ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o CPF:                                                           ///\n");
-    scanf("%[0-9].", cpf);
+    do {
+      printf("///          Informe o CPF:                                                           ///\n");
+      scanf("%[0-9].", cpf);
+      getchar();
+    } while (!validarCPF(cpf));
+
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -253,8 +264,12 @@ char* telaAtualizar(void) {
     printf("///              ================== Atualizar Cliente ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///          Informe o CPF:                                                           ///\n");
-    scanf("%[0-9].", cpf);
+    do {
+      printf("///          Informe o CPF:                                                           ///\n");
+      scanf("%[0-9].", cpf);
+      getchar();
+    } while (!validarCPF(cpf));
+
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
@@ -282,8 +297,12 @@ char* telaExcluir(void) {
   printf("///              =================== Excluir Cliente ===================              ///\n");
   printf("///                                                                                   ///\n");
   printf("///                                                                                   ///\n");
-  printf("///          Informe o CPF:                                                           ///\n");
-  scanf("%[0-9].", cpf);
+  do {
+      printf("///          Informe o CPF:                                                           ///\n");
+      scanf("%[0-9].", cpf);
+      getchar();
+  } while (!validarCPF(cpf));
+
   printf("///                                                                                   ///\n");
   printf("///                                                                                   ///\n");
   printf("///                                                                                   ///\n");
@@ -295,6 +314,7 @@ char* telaExcluir(void) {
   getchar();
   return cpf;
 }
+
 
 void salvarCliente(Cliente* cli) {
   FILE* fp;
@@ -317,7 +337,7 @@ Cliente* buscarCliente(char* cpf) {
 		telaErroArquivoCliente();
 	}
 	while(fread(cli, sizeof(Cliente), 1, fp)) {
-    if ((strcmp(cli->cpf, cpf) == 0) && (cli->status == True)) {
+    		if (strcmp(cli->cpf, cpf) && (cli->status == True)) {
 			fclose(fp);
 			return cli;
 		}
@@ -338,8 +358,8 @@ void exibirCliente(Cliente* cli) {
 		printf("Email: %s\n", cli->email);
 		printf("Telefone: %s\n", cli->fone);
 		printf("Veículo: %s\n", cli->veic);
-    printf("Placa do veículo: %s\n", cli->placa);
-    printf("Cor do veículo: %s\n", cli->cor);
+    		printf("Placa do veículo: %s\n", cli->placa);
+    		printf("Cor do veículo: %s\n", cli->cor);
 	}
 	printf("\n\nTecle ENTER para continuar!\n\n");
 	getchar();
