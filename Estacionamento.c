@@ -23,37 +23,29 @@
 /////////////////////////////
 
 char telaInicio(void);
-void telaValores(void);
+void telaSistemaFinalizado(void);
 
 ////////////////////////
 // Programa principal //
 ////////////////////////
 
 int main(void) {
-    char menu;
+    char opc;
 
     do {
-        menu = telaInicio();
-        switch(menu) {
+        opc = telaInicio();
+        switch(opc) {
             case '1':   moduloCliente();
                         break;
-            case '2':   telaValores();
+            case '2':   moduloAluguel();
                         break;
-            case '3':   moduloAluguel();
+            case '3':   moduloGestao();
                         break;
-            case '4':   moduloGestao();
+            case '4':   moduloSobre();
                         break;
-            case '5':   telaInfo();
-                        telaCriacao();
-                        break;
-
         } 	
-    } while (menu != '0');
-
-    telaAnexarReceita();
-    telaRelatorioSemanal();
-    telaRelatorioMensal();
-    return 0;
+    } while (opc != '0');
+    telaSistemaFinalizado();
 }
 
 /////////////
@@ -73,11 +65,10 @@ char telaInicio(void) {
     printf("///                                                                                   ///\n");
     printf("///              ========================  Menu  =======================              ///\n");
     printf("///                                                                                   ///\n");
-    printf("///               1 -  Clientes                                                       ///\n");
-    printf("///               2 -  Tabela de Valores                                              ///\n");
-    printf("///               3 -  Aluguel                                                        ///\n");
-    printf("///               4 -  Gestão                                                         ///\n");
-    printf("///               5 -  Sobre                                                          ///\n");
+    printf("///               1 -  Módulo Clientes                                                ///\n");
+    printf("///               2 -  Módulo Aluguel                                                 ///\n");
+    printf("///               3 -  Módulo Gestão                                                  ///\n");
+    printf("///               4 -  Sobre                                                          ///\n");
     printf("///               0 -  Sair                                                           ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -85,30 +76,25 @@ char telaInicio(void) {
     printf("               Escolha a opção que você deseja:                                          \n");
     scanf("%c", &opc);
     printf("\n");
-    printf("\t\t\t<<< ... Aguarde ... >>>\n");
-    sleep(1);
+    printf("\t\t\t>>>  Aguarde um momento...\n");
     return opc;
 }
 
-void telaValores(void) {
-    
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================== Tabela de Valores ==================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                        Hora     Dia     Semana     Mês            ///\n");
-    printf("///         Motocicletas             |R$   2,50     10,00   30,00      100,00         ///\n");
-    printf("///         Carros de pequeno porte  |R$   5,00     20,00   60,00      200,00         ///\n");
-    printf("///         Carros de grande porte   |R$   7,50     30,00   90,00      300,00         ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+void telaSistemaFinalizado(void) {
+
+  system("clear||cls");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                    ///\n");
+  printf("///                =======================================================             ///\n");
+  printf("///                ======   Sistema de Controle de Estacionamento   ======             ///\n");
+  printf("///                =======================================================             ///\n");
+  printf("///                                                                                    ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                    ///\n");
+  printf("///                       Obrigado por utilizar o nosso sistema!                       ///\n");
+  printf("///                          O sistema está sendo finalizado!                          ///\n");
+  printf("///                                 Sistema Finalizado!                                ///\n");
+  printf("///                                                                                    ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
 }
+
