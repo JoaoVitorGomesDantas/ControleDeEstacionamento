@@ -53,18 +53,33 @@ char telaGestao(void) {
     printf("///               3 -  Controle de vagas                                              ///\n");
     printf("///               0 -  Voltar para o menu principal                                   ///\n");
     printf("///                                                                                   ///\n");
-    printf("///            Escolha a opção que você deseja:                                       ///\n");
-    scanf("%c", &opc);
-    getchar();
-
-    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
+    printf("\n");
+    printf("\t\t\t>>>  Aguarde um momento...\n");
+    sleep(1);
     return opc;
 }
 
+void moduloFluxoFinanceiro(void) {
+    char opc;
+
+    do {
+        opc = telaFluxoFinanceiro();
+        switch(opc) {
+            case '1': 	telaAnexarReceita();
+                        break;
+            case '2': 	telaAnexarVagas();
+                        break;
+            case '3': 	telaRelatorioSemanal();
+                        break;
+            case '4': 	telaRelatorioMensal();
+                        break;
+        } 		
+    } while (opc != '0');
+}
 
 char telaFluxoFinanceiro(void) {
     char opc;
@@ -85,10 +100,10 @@ char telaFluxoFinanceiro(void) {
     printf("///               4 -  Relatório mensal                                               ///\n");
     printf("///               0 -  Voltar ao menu principal                                       ///\n");
     printf("///                                                                                   ///\n");
-    printf("///            Escolha a opção que você deseja:                                       ///\n");
-    scanf("%c", &opc);
-    printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("               Escolha a opção que você deseja:                                          \n");
+    scanf("%c", &opc);
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
