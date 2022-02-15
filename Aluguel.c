@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "Aluguel.h"
+#include "Validar.h"
 
 typedef struct aluguel Aluguel;
 
@@ -29,6 +30,8 @@ void moduloAluguel(void) {
                         break;
             case '2': 	telaAlugando();
                         break;
+            case '3': 	telaValores();
+                        break;
         } 		
     } while (opc != '0');
 }
@@ -36,6 +39,7 @@ void moduloAluguel(void) {
 char telaAluguel(void) {
     char opc;
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -47,6 +51,7 @@ char telaAluguel(void) {
     printf("///                                                                                   ///\n");
     printf("///               1 -  Vagas                                                          ///\n");
     printf("///               2 -  Aluguel                                                        ///\n");
+    printf("///               3 -  Tabela de Valores                                              ///\n");
     printf("///               0 -  Voltar para meunu principal                                    ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -61,6 +66,7 @@ char telaAluguel(void) {
 
 void telaVagas(void) {
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -87,6 +93,7 @@ void telaAlugando(void) {
     Aluguel* alg;
     alg = (Aluguel*) malloc(sizeof(Aluguel));
 
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("///              =======================================================              ///\n");
@@ -97,29 +104,41 @@ void telaAlugando(void) {
     printf("///              =================== Menu para Alugar ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
+    do {
     printf("///          Nome do cliente:                                                         ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", alg->nome);
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ] ", alg->nome);
     getchar();
+    } while (!validarNome(alg->nome));
 
-    printf("///          CPF:                                                                     ///\n");
+    do {
+    printf("///          CPF (apenas número):                                                     ///\n");
     scanf("%[0-9]", alg->cpf);
     getchar();
+    } while (!validarCPF(alg->cpf));
 
-    printf("///          Data de entrada:                                                         ///\n");
+    do{
+    printf("///          Data de entrada (dd/mm/aaaa):                                            ///\n");
     scanf("%[0-9]/", alg->dte);
     getchar();
+    } while (!validarData(alg->dte));
 
-    printf("///          Data de saída:                                                           ///\n");
+    do {
+    printf("///          Data de saída (dd/mm/aaaa):                                              ///\n");
     scanf("%[0-9]/", alg->dts);
     getchar();
+    } while (!validarData(alg->dts));
 
+    do {
     printf("///          Tipo do veículo:                                                         ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", alg->tpvei);
     getchar();
+    } while (!validarNome(alg->tpvei));
 
+    do {
     printf("///          Modelo do veículo:                                                       ///\n");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", alg->mdvei);
     getchar();
+    } while (!validarNome(alg->mdvei));
 
     printf("///          Placa do veículo:                                                        ///\n");
     scanf("%[A-Za-z0-9]", alg->placa);
@@ -134,5 +153,30 @@ void telaAlugando(void) {
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void telaValores(void) {
+
+    system("clear||cls");
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///              =======================================================              ///\n");
+    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    printf("///              =======================================================              ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================== Tabela de Valores ==================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                        Hora     Dia     Semana     Mês            ///\n");
+    printf("///         Motocicletas             |R$   2,50     10,00   30,00      100,00         ///\n");
+    printf("///         Carros de pequeno porte  |R$   5,00     20,00   60,00      200,00         ///\n");
+    printf("///         Carros de grande porte   |R$   7,50     30,00   90,00      300,00         ///\n");
+    printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t\t\t>>>  Aguarde um momento...\n");
+    sleep(2);
     getchar();
 }
