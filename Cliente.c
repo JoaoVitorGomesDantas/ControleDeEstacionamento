@@ -34,6 +34,10 @@ void moduloCliente(void) {
                         break;
             case '4': 	excluirCliente();
                         break;
+            case '5':   listarCliente();
+                        break;
+            case '6':   listaClientesPorCidade();
+                        break;
         } 		
     } while (opc != '0');
 }
@@ -92,6 +96,48 @@ void excluirCliente(void) {
 	free(cpf);
 }
 
+void listarCliente(void) {
+  FILE* fp;
+  Cliente* cli;
+  printf("\n = Lista de Clientes = \n"); 
+  cli = (Cliente*) malloc(sizeof(Cliente));
+  fp = fopen("cliente.dat", "rb");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  while(fread(cli, sizeof(Cliente), 1, fp)) {
+    if (cli->status != 'x') {
+      exibirCliente(cli);
+    }
+  }
+  fclose(fp);
+}
+
+void listaClientesPorCidade(void) {
+  FILE* fp;
+  char city[61];
+  Cliente* cli;
+  printf("\n = Lista Clientes por Cidade= \n"); 
+  printf("\n = Busca Cliente = \n"); 
+  printf("Informe a Cidade: "); 
+  scanf(" %50[^\n]", city);
+  cli = (Cliente*) malloc(sizeof(Cliente));
+  fp = fopen("cliente.dat", "rb");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  while(fread(cli, sizeof(Cliente), 1, fp)) {
+    if (strcmp(cli->city, city) == 0 && (cli->status != 'x')) {
+      exibirCliente(cli);
+    }
+  }
+  fclose(fp);
+}
+
 char telaCliente(void) {
     char opc;
 
@@ -109,6 +155,8 @@ char telaCliente(void) {
     printf("///               2 -  Pesquisar dados do cliente                                     ///\n");
     printf("///               3 -  Atualizar dados do cliente                                     ///\n");
     printf("///               4 -  Excluir cliente do sistema                                     ///\n");
+    printf("///               5 -  Listar clientes                                                ///\n");
+    printf("///               6 -  Listar clientes por cidade                                     ///\n");
     printf("///               0 -  Voltar ao Menu principal                                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -162,11 +210,10 @@ Cliente* telaCadastrar(void) {
     printf("///              ================== Cadastrar Cliente ==================              ///\n");
     printf("///                                                                                   ///\n");
     printf("///                                                                                   ///\n");
-    do {
-      printf("///          Nome do cliente:                                                         ///\n");
-      scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
-      getchar();
-    } while (!validarNome(cli->nome));
+    getchar();
+    printf("///          Nome do cliente:                                                         ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->nome);
+    getchar();
 
     do {
       printf("///          CPF (apenas números):                                                    ///\n");
@@ -175,10 +222,14 @@ Cliente* telaCadastrar(void) {
     } while (!validarCPF(cli->cpf));
 
     do {
-      printf("///          Data de nascimento (dd/mm/aaaa):                                         ///\n");
-    scanf("%[0-9]/", cli->nasc);
-    getchar();
+      printf("///          Data de nascimento (dd/mm/aaaa):                                           ///\n");
+      scanf("%[0-9]/", cli->nasc);
+      getchar();
     } while (!validarData(cli->nasc));
+
+    printf("///          Cidade:                                                                    ///\n");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->city);
+    getchar();
 
     printf("///          Email:                                                                     ///\n");
     scanf("%[@A-Za-z._0-9]", cli->email);
@@ -191,20 +242,14 @@ Cliente* telaCadastrar(void) {
     } while (!validaTelefone(cli->fone));
 
     do {
-    printf("///          Veículo:                                                                 ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->veic);
-    getchar();
+      printf("///          Veículo:                                                                 ///\n");
+      scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->veic);
+      getchar();
     } while (!validarNome(cli->veic));
 
     printf("///          Placa do veículo:                                                        ///\n");
     scanf("%[A-Za-z0-9]", cli->placa);
     getchar();
-
-    do {
-    printf("///          Cor do veículo:                                                          ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", cli->cor);
-    getchar();
-    } while (!validarNome(cli->cor));
 
     cli->status = True;
     
