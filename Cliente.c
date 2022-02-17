@@ -406,6 +406,7 @@ void exibirCliente(Cliente* cli) {
     		printf("Placa do veículo: %s\n", cli->placa);
     		printf("Cor do veículo: %s\n", cli->cor);
 	}
+	sleep(2);
 	printf("\n\nTecle ENTER para continuar!\n\n");
 	getchar();
 }
