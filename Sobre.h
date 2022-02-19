@@ -9,7 +9,6 @@
 ///                  Developed by @joaovitorgd - Out, 2021                  ///
 ///////////////////////////////////////////////////////////////////////////////
 
-
 void moduloSobre(void);
 char telaSobre(void);
 void telaInfo(void);
