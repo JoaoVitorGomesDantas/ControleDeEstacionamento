@@ -47,16 +47,16 @@ char telaSobre(void) {
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("               Escolha a opção que você deseja:                                          \n");
+    printf("               Escolha a opção que você deseja: ");
     scanf("%c", &opc);
     printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    printf("\t\t\t>>>  Aguarde um momento...\n");
     sleep(1);
     return opc;
 }
 
 void telaInfo(void) {
-
+    
     system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -66,6 +66,7 @@ void telaInfo(void) {
     printf("///                      Departamento de Computação e Tecnologia                      ///\n");
     printf("///                         Disciplina DCT1106 -- Programação                         ///\n");
     printf("///                   Projeto Sistema de Controle de Estacionamento                   ///\n");
+    printf("///        Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta        ///\n");
     printf("///                       Developed by @joaovitorgd - Out, 2021                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -80,12 +81,13 @@ void telaInfo(void) {
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    sleep(5);
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
 
 void telaCriacao(void) {
-
+    
     system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -95,6 +97,7 @@ void telaCriacao(void) {
     printf("///                      Departamento de Computação e Tecnologia                      ///\n");
     printf("///                         Disciplina DCT1106 -- Programação                         ///\n");
     printf("///                   Projeto Sistema de Controle de Estacionamento                   ///\n");
+    printf("///        Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta        ///\n");
     printf("///                       Developed by @joaovitorgd - Out, 2021                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -107,9 +110,11 @@ void telaCriacao(void) {
     printf("///    E-mail: joao.vitor.dantas.085@ufrn.edu.br                                      ///\n");
     printf("///    Redes sociais: @joaovitorgd                                                    ///\n");
     printf("///    Repositório: https://github.com/JoaoVitorGomesDantas/ControleDeEstacionamento  ///\n");
+    printf("///    Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta            ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    sleep(5);
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
