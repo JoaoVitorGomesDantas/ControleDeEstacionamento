@@ -202,26 +202,26 @@ char telaAluguel(void) {
 }
 
 void telaErroArquivoAluguel(void) {
-    
-    system("clear||cls");
+	
+	system("clear||cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    	printf("///              =======================================================              ///\n");
+    	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    	printf("///              =======================================================              ///\n");
+    	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                                   ///\n");
 	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
-    printf("///                                                                                   ///\n");
+    	printf("///                                                                                   ///\n");
 	printf("///                                  Ocorreu um erro!                                 ///\n");
 	printf("///                      Não foi possível acessar o arquivo com                       ///\n");
-	printf("///                          informações sobre os clientes.                           ///\n");
+	printf("///                          informações sobre os alugueis.                           ///\n");
 	printf("///                                                                                   ///\n");
 	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
 	printf("///                        mas este programa será finalizado!                         ///\n");
 	printf("///                                                                                   ///\n");
 	printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n\nTecle ENTER para continuar!\n\n");
 	getchar();
 	exit(1);
@@ -485,32 +485,32 @@ Aluguel* buscarAluguel(char* rg) {
 void exibirAluguel(Aluguel* alg) {
     
     if (alg == NULL) {
-        printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-        printf("///                                                                                   ///\n");
-        printf("///              ================= Aluguel Inexistente =================              ///\n");
-        printf("///                                                                                   ///\n");
-        printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	} else {
-        printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-        printf("///                                                                                   ///\n");
-		printf("///              ================== Aluguel Cadastrado =================              ///\n");
-        printf("///                                                                                   ///\n");
-		printf("///              Nome do cliente: %s\n", alg->nome);
-		printf("///              CPF: %s\n", alg->cpf);
-		printf("///              RG: %s\n", alg->rg);
-        printf("///              Tipo de Aluguel: %s\n", alg->tipo);
-		printf("///              Data de entrada: %s\n", alg->dte);
-		printf("///              Data de saída: %s\n", alg->dts);
-		printf("///              Veículo: %s\n", alg->tpvei);
-        printf("///              Placa do veículo: %s\n", alg->placa);
-        printf("///              Valor do Aluguel: %s\n", alg->valor);
-        printf("///              Status: %d\n", alg->status);
-        printf("///                                                                                   ///\n");
-        printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	}
+	    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	    printf("///                                                                                   ///\n");
+	    printf("///              ================= Aluguel Inexistente =================              ///\n");
+	    printf("///                                                                                   ///\n");
+	    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    } else {
+	    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	    printf("///                                                                                   ///\n");
+	    printf("///              ================== Aluguel Cadastrado =================              ///\n");
+	    printf("///                                                                                   ///\n");
+	    printf("///              Nome do cliente: %s\n", alg->nome);
+	    printf("///              CPF: %s\n", alg->cpf);
+	    printf("///              RG: %s\n", alg->rg);
+	    printf("///              Tipo de Aluguel: %s\n", alg->tipo);
+	    printf("///              Data de entrada: %s\n", alg->dte);
+	    printf("///              Data de saída: %s\n", alg->dts);
+	    printf("///              Veículo: %s\n", alg->tpvei);
+	    printf("///              Placa do veículo: %s\n", alg->placa);
+	    printf("///              Valor do Aluguel: %s\n", alg->valor);
+	    printf("///              Status: %d\n", alg->status);
+	    printf("///                                                                                   ///\n");
+	    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    }
     getchar();
-	printf("\n\nTecle ENTER para continuar!\n\n");
-	getchar();
+    printf("\n\nTecle ENTER para continuar!\n\n");
+    getchar();
 }
 
 void regravarAluguel(Aluguel* alg) {
