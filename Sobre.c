@@ -67,6 +67,7 @@ void telaInfo(void) {
     printf("///                         Disciplina DCT1106 -- Programação                         ///\n");
     printf("///                   Projeto Sistema de Controle de Estacionamento                   ///\n");
     printf("///        Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta        ///\n");
+    printf("///      Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta_2020.2   ///\n");
     printf("///                       Developed by @joaovitorgd - Out, 2021                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -98,6 +99,7 @@ void telaCriacao(void) {
     printf("///                         Disciplina DCT1106 -- Programação                         ///\n");
     printf("///                   Projeto Sistema de Controle de Estacionamento                   ///\n");
     printf("///        Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta        ///\n");
+    printf("///      Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta_2020.2   ///\n");
     printf("///                       Developed by @joaovitorgd - Out, 2021                       ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -111,6 +113,7 @@ void telaCriacao(void) {
     printf("///    Redes sociais: @joaovitorgd                                                    ///\n");
     printf("///    Repositório: https://github.com/JoaoVitorGomesDantas/ControleDeEstacionamento  ///\n");
     printf("///    Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta            ///\n");
+    printf("///    Inspirado em: @flgorgonio https://github.com/flgorgonio/linguasolta_2020.2     ///\n");
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
