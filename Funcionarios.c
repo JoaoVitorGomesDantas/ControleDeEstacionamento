@@ -18,21 +18,25 @@
 typedef struct funcionario Funcionario;
 
 void moduloFuncionarios(void) {
-    char opc;
+	char opc;
 
-    do {
-        opc = telaFuncionarios();
-        switch(opc) {
-            case '1': 	cadastrarFuncionario();
-                        break;
-            case '2': 	pesquisarFuncionario();
-                        break;
-            case '3': 	atualizarFuncionario();
-                        break;
-            case '4': 	excluirFuncionario();
-                        break;
-        } 		
-    } while (opc != '0');
+  	do {
+		opc = telaFuncionarios();
+      		switch(opc) {
+			case '1': 	cadastrarFuncionario();
+				break;
+          		case '2': 	pesquisarFuncionario();
+                      		break;
+          		case '3': 	atualizarFuncionario();
+                      		break;
+          		case '4': 	excluirFuncionario();
+                      		break;
+          		case '5':   listarFuncionario();
+                      		break;
+          		case '6':   listaFuncionarioPorTurno();
+                      		break;
+		} 
+	} while (opc != '0');
 }
 
 void cadastrarFuncionario(void) {
@@ -61,7 +65,11 @@ void atualizarFuncionario(void) {
 	cpf = telaAtualizarFunc();
 	func = buscarFuncionario(cpf);
 	if (func == NULL) {
-    	printf("\n\nAluno não encontrado!\n\n");
+		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///                                                                                   ///\n");
+    		printf("///              ============= Funcionário não encontrado! =============              ///\n");
+    		printf("///                                                                                   ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
   	} else {
 		func = telaCadastrarFunc();
 		strcpy(func->cpf, cpf);
@@ -80,52 +88,117 @@ void excluirFuncionario(void) {
 	func = (Funcionario*) malloc(sizeof(Funcionario));
 	func = buscarFuncionario(cpf);
 	if (func == NULL) {
-    	printf("\n\nAluno não encontrado!\n\n");
+		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///                                                                                   ///\n");
+    		printf("///              ============= Funcionário não encontrado! =============              ///\n");
+    		printf("///                                                                                   ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
   	} else {
-		  func->status = False;
-		  regravarFuncionario(func);
-		  free(func);
+		func->status = False;
+		regravarFuncionario(func);
+		free(func);
 	}
 	free(cpf);
 }
 
-char telaFuncionarios(void) {
-    char opc;
+void listarFuncionario(void) {
+	FILE* fp;
+  	Funcionario* func;
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================ Lista de Funcionários ================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	func = (Funcionario*) malloc(sizeof(Funcionario));
+  	fp = fopen("funcionario.dat", "rb");
+  	if (fp == NULL) {
+		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///                                                                                   ///\n");
+    		printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
+    		printf("///              ======= Não é possível continuar este programa! =======              ///\n");
+    		printf("///                                                                                   ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		exit(1);
+  	}
+  	while(fread(func, sizeof(Funcionario), 1, fp)) {
+		if (func->status != 0) {
+			exibirFuncionario(func);
+		}
+	}
+  	fclose(fp);
+}
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================ Menu dos Funcionários ================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///               1 -  Cadastrar funcionário                                          ///\n");
-    printf("///               2 -  Pesquisar dados do funcionário                                 ///\n");
-    printf("///               3 -  Atualizar dados do funcionário                                 ///\n");
-    printf("///               4 -  Excluir funcionário do sistema                                 ///\n");
-    printf("///               0 -  Voltar ao Menu principal                                       ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("               Escolha a opção que você deseja:                                          \n");
-    scanf("%c", &opc);
-    printf("\n");
-    printf("\t\t\t>>>  Aguarde um momento...\n");
-    sleep(1);
-    return opc;
+void listaFuncionarioPorTurno(void) {
+	FILE* fp;
+  	char trn[21];
+  	Funcionario* func;
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ============ Lista de Funcionário por Turno ============             ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================== Buscar Funcionario ==================             ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              Informe o Turno: ");
+  	scanf(" %50[^\n]", trn);
+  	func = (Funcionario*) malloc(sizeof(Funcionario));
+  	fp = fopen("funcionario.dat", "rb");
+  	if (fp == NULL) {
+		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///                                                                                   ///\n");
+    		printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
+    		printf("///              ======= Não é possível continuar este programa! =======              ///\n");
+    		printf("///                                                                                   ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		exit(1);
+  	}
+	while(fread(func, sizeof(Funcionario), 1, fp)) {
+		if (strcmp(func->trn, trn) == 0 && (func->status != 0)) {
+			exibirFuncionario(func);
+		}
+	}
+  	fclose(fp);
+}
+
+char telaFuncionarios(void) {
+	char opc;
+
+  	system("clear||cls");
+  	printf("\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================ Menu dos Funcionários ================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///               1 -  Cadastrar funcionário                                          ///\n");
+  	printf("///               2 -  Pesquisar dados do funcionário                                 ///\n");
+  	printf("///               3 -  Atualizar dados do funcionário                                 ///\n");
+  	printf("///               4 -  Excluir funcionário do sistema                                 ///\n");
+  	printf("///               5 -  Listar funcionários do sistema                                 ///\n");
+  	printf("///               6 -  Listar funcionários por turno                                  ///\n");
+  	printf("///               0 -  Voltar ao Menu principal                                       ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+ 	printf("\n");
+  	printf("               Escolha a opção que você deseja: ");
+  	scanf("%c", &opc);
+  	printf("\n");
+  	printf("\t\t\t>>>  Aguarde um momento...\n");
+  	sleep(1);
+  	return opc;
 }
 
 void telaErroArquivoFuncionario(void) {
-
-  	system("clear||cls");
+	
+	system("clear||cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
- 	printf("///              =======================================================              ///\n");
- 	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
- 	printf("///              =======================================================              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
   	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                                   ///\n");
 	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
@@ -138,182 +211,192 @@ void telaErroArquivoFuncionario(void) {
 	printf("///                        mas este programa será finalizado!                         ///\n");
 	printf("///                                                                                   ///\n");
 	printf("///                                                                                   ///\n");
- 	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 }
 
 Funcionario* telaCadastrarFunc(void) {
-    Funcionario* func;
-    func = (Funcionario*) malloc(sizeof(Funcionario));
+	Funcionario* func;
+  	func = (Funcionario*) malloc(sizeof(Funcionario));
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================ Cadastrar Funcionário ================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
+  	system("clear||cls");
+  	printf("\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================ Cadastrar Funcionário ================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+	
+  	getchar();
+  	printf("///          Nome: ");
+  	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->nome);
+  	getchar();
+
+
+  	do {
+		printf("///          CPF (apenas números): ");
+    		scanf("%[0-9].", func->cpf);
+    		getchar();
+  	} while (!validarCPF(func->cpf));
     
-    do {
-      printf("///          Nome:                                                                    ///\n");
-      scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->nome);
-      getchar();
-    } while (!validarNome(func->nome));
+  	do {
+    		printf("///          RG (apenas números): ");
+    		scanf("%[0-9]", func->rg);
+    		getchar();
+  	} while (!validarRG(func->rg));
 
-    do {
-      printf("///          CPF (apenas números):                                                    ///\n");
-      scanf("%[0-9].", func->cpf);
-      getchar();
-    } while (!validarCPF(func->cpf));
-    
-    do {
-    printf("///          RG (apenas números):                                                       ///\n");
-    scanf("%[0-9]", func->rg);
-    getchar();
-    } while (!validarRG(func->rg));
+  	do {
+    		printf("///          Data de nascimento: ");
+    		scanf("%[0-9]/", func->nasc);
+    		getchar();
+  	} while (!validarData(func->nasc));
 
-    do {
-    printf("///          Data de nascimento:                                                      ///\n");
-    scanf("%[0-9]/", func->nasc);
-    getchar();
-    } while (!validarData(func->nasc));
+  	printf("///          Cidade: ");
+  	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->city);
+  	getchar();
 
-    do {
-    printf("///          Endereço:                                                                ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->end);
-    getchar();
-    } while(!validarNome(func->end));
+  	printf("///          Endereço: ");
+  	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", func->end);
+  	getchar();
 
-    printf("///          Email:                                                                   ///\n");
-    scanf("%[A-Za-z@._]", func->email);
+  	printf("///          Email: ");
+  	scanf("%[A-Za-z@._]", func->email);
+  	getchar();
 
-    do {
-      printf("///          Telefone (apenas número com DDD):                                        ///\n");
-      scanf("%[0-9]", func->fone);
-      getchar();
-    } while (!validaTelefone(func->fone));
+  	do {
+    		printf("///          Telefone (apenas número com DDD): ");
+    		scanf("%[0-9]", func->fone);
+    		getchar();
+  	} while (!validaTelefone(func->fone));
 
-    func->status = True;
+  	printf("///          Turno (Manhã: M ;Tarde: T ; Noite:  N) : ");
+  	scanf("%[A-Za-z]", func->trn);
+  	getchar();
 
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
-    return func;
+  	func->status = True;
+
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("\n");
+  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  	getchar();
+  	return func;
 }
 
 char* telaPesquisarFunc(void) {
-    char* cpf;
-    cpf = (char*) malloc(14*sizeof(cpf));
+	char* cpf;
+  	cpf = (char*) malloc(14*sizeof(cpf));
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================ Pesquisar Funcionário ================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    do {
-      printf("///          Informe o CPF do funcionário:                                            ///\n");
-      scanf("%[0-9].", cpf);
-      getchar();
-    } while (!validarCPF(cpf));
+  	system("clear||cls");
+  	printf("\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================ Pesquisar Funcionário ================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	do {
+		getchar();
+    		printf("///          Informe o CPF do funcionário: ");
+    		scanf("%[0-9].", cpf);
+    		getchar();
+  	} while (!validarCPF(cpf));
 
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
-    return cpf;
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("\n");
+  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  	getchar();
+  	return cpf;
 }
 
 char* telaAtualizarFunc(void) {
-    char* cpf;
-    cpf = (char*) malloc(14*sizeof(cpf));
+	char* cpf;
+  	cpf = (char*) malloc(14*sizeof(cpf));
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================ Atualizar Funcionário ================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    do {
-      printf("///          Informe o CPF do funcionário:                                            ///\n");
-      scanf("%[0-9].", cpf);
-      getchar();
-    } while (!validarCPF(cpf));
+  	system("clear||cls");
+  	printf("\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================ Atualizar Funcionário ================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	do {
+		getchar();
+    		printf("///          Informe o CPF do funcionário: ");
+    		scanf("%[0-9].", cpf);
+    		getchar();
+  	} while (!validarCPF(cpf));
 
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
-    return cpf;
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("\n");
+  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  	getchar();
+  	return cpf;
 }
 
 char* telaExcluirFunc(void) {
-    char* cpf;
-    cpf = (char*) malloc(14*sizeof(cpf));
+	char* cpf;
+  	cpf = (char*) malloc(14*sizeof(cpf));
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ================= Excluir Funcionário =================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    do {
-      printf("///          Informe o CPF do funcionário:                                            ///\n");
-      scanf("%[0-9].", cpf);
-      getchar();
-    } while (!validarCPF(cpf));
-    
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
-    return cpf;
+  	system("clear||cls");
+  	printf("\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  	printf("///              =======================================================              ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///              ================= Excluir Funcionário =================              ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	do {
+		getchar();
+    		printf("///          Informe o CPF do funcionário: ");
+    		scanf("%[0-9].", cpf);
+    		getchar();
+  	} while (!validarCPF(cpf));
+   
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("///                                                                                   ///\n");
+  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  	printf("\n");
+  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  	getchar();
+  	return cpf;
 }
 
 void salvarFuncionario(Funcionario* func) {
-  FILE* fp;
+	FILE* fp;
 
-  fp = fopen("funcionário.dat", "ab");
-  if (fp == NULL){
-    telaErroArquivoFuncionario(); 
-  }
-  fwrite(func, sizeof(Funcionario), 1, fp);
-  fclose(fp);
+  	fp = fopen("funcionario.dat", "ab");
+  	if (fp == NULL){
+		telaErroArquivoFuncionario(); 
+  	}
+	fwrite(func, sizeof(Funcionario), 1, fp);
+  	fclose(fp);
 }
 
 Funcionario* buscarFuncionario(char* cpf) {
@@ -326,28 +409,41 @@ Funcionario* buscarFuncionario(char* cpf) {
 		telaErroArquivoFuncionario();
 	}
 	while(fread(func, sizeof(Funcionario), 1, fp)) {
-    		if (strcmp(func->cpf, cpf) && (func->status == True)) {
+		if ((strcmp(func->cpf, cpf) == 0) && (func->status == True)) {
 			fclose(fp);
 			return func;
 		}
 	}
 	fclose(fp);
-	return func;
+	return NULL;
 }
 
 void exibirFuncionario(Funcionario* func) {
-
+	
 	if (func == NULL) {
 		printf("\n= = = Funcionario Inexistente = = =\n");
 	} else {
-		printf("\n= = = Funcionario Cadastrado = = =\n");
-		printf("Nome do Funcionario: %s\n", func->nome);
-		printf("CPF: %s\n", func->cpf);
-    		printf("RG: %s\n", func->rg);
-		printf("Data de nascimento: %s\n", func->nasc);
-    		printf("Endereço: %s\n", func->end);
-		printf("Email: %s\n", func->email);
-		printf("Telefone: %s\n", func->fone);
+		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///              =======================================================              ///\n");
+    		printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    		printf("///              =======================================================              ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		printf("///                                                                                   ///\n");
+		printf("///              ============== Funcionario Cadastrado =================              ///\n");
+    		printf("///                                                                                   ///\n");
+		printf("///              Nome do Funcionario: %s\n", func->nome);
+		printf("///              CPF: %s\n", func->cpf);
+    		printf("///              RG: %s\n", func->rg);
+		printf("///              Data de nascimento: %s\n", func->nasc);
+    		printf("///              Cidade: %s\n", func->city);
+    		printf("///              Endereço: %s\n", func->end);
+		printf("///              Email: %s\n", func->email);
+		printf("///              Telefone: %s\n", func->fone);
+    		printf("///              Turno: %s\n", func->trn);
+    		printf("///              Status: %d\n", func->status);
+    		printf("///                                                                                   ///\n");
+    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    		getchar();
 	}
 	printf("\n\nTecle ENTER para continuar!\n\n");
 	getchar();
@@ -368,7 +464,7 @@ void regravarFuncionario(Funcionario* func) {
 		if (strcmp(funcLido->cpf, func->cpf) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Funcionario), SEEK_CUR);
-        			fwrite(func, sizeof(Funcionario), 1, fp);
+      			fwrite(func, sizeof(Funcionario), 1, fp);
 		}
 	}
 	fclose(fp);
