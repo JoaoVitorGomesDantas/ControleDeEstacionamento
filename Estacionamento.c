@@ -36,16 +36,16 @@ int main(void) {
         opc = telaInicio();
         switch(opc) {
             case '1':   moduloCliente();
-                        break;
+                break;
             case '2':   moduloAluguel();
-                        break;
+                break;
             case '3':   moduloGestao();
-                        break;
+                break;
             case '4':   moduloSobre();
-                        break;
+                break;
         } 	
-    } while (opc != '0');
-    telaSistemaFinalizado();
+  } while (opc != '0');
+  telaSistemaFinalizado();
 }
 
 /////////////
@@ -73,7 +73,7 @@ char telaInicio(void) {
     printf("///                                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("               Escolha a opção que você deseja:                                          \n");
+    printf("               Escolha a opção que você deseja: ");
     scanf("%c", &opc);
     printf("\n");
     printf("\t\t\t>>>  Aguarde um momento...\n");
@@ -81,20 +81,20 @@ char telaInicio(void) {
 }
 
 void telaSistemaFinalizado(void) {
-
-  system("clear||cls");
-  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                                    ///\n");
-  printf("///                =======================================================             ///\n");
-  printf("///                ======   Sistema de Controle de Estacionamento   ======             ///\n");
-  printf("///                =======================================================             ///\n");
-  printf("///                                                                                    ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                                    ///\n");
-  printf("///                       Obrigado por utilizar o nosso sistema!                       ///\n");
-  printf("///                          O sistema está sendo finalizado!                          ///\n");
-  printf("///                                 Sistema Finalizado!                                ///\n");
-  printf("///                                                                                    ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+    
+    system("clear||cls");
+    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                    ///\n");
+    printf("///                =======================================================             ///\n");
+    printf("///                ======   Sistema de Controle de Estacionamento   ======             ///\n");
+    printf("///                =======================================================             ///\n");
+    printf("///                                                                                    ///\n");
+    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                    ///\n");
+    printf("///                       Obrigado por utilizar o nosso sistema!                       ///\n");
+    printf("///                          O sistema está sendo finalizado!                          ///\n");
+    printf("///                                 Sistema Finalizado!                                ///\n");
+    printf("///                                                                                    ///\n");
+    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+    exit(1);
 }
-
