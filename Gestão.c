@@ -275,17 +275,17 @@ char telaFluxoFinanceiro(void) {
 }
 
 void telaErroArquivoFluxoFinanceiro(void) {
-    
-    system("clear||cls");
+	
+	system("clear||cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    	printf("///              =======================================================              ///\n");
+    	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+    	printf("///              =======================================================              ///\n");
+    	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                                   ///\n");
 	printf("///        ============== Sistema de Controle de Estacionamento ==============        ///\n");
-    printf("///                                                                                   ///\n");
+    	printf("///                                                                                   ///\n");
 	printf("///                                  Ocorreu um erro!                                 ///\n");
 	printf("///                      Não foi possível acessar o arquivo com                       ///\n");
 	printf("///                       informações sobre o fluxo financeiro.                       ///\n");
@@ -294,7 +294,7 @@ void telaErroArquivoFluxoFinanceiro(void) {
 	printf("///                        mas este programa será finalizado!                         ///\n");
 	printf("///                                                                                   ///\n");
 	printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n\nTecle ENTER para continuar!\n\n");
 	getchar();
 	exit(1);
@@ -463,7 +463,7 @@ void telaRelatorioDiario(Gestao* gest) {
         printf("///              ============== Fluxo de Caixa Inexistente ==============             ///\n");
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	} else {
+    } else {
         printf("\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
         printf("///              =======================================================              ///\n");
@@ -478,7 +478,7 @@ void telaRelatorioDiario(Gestao* gest) {
         printf("///              Dia do Cadastro (dd): %s\n", gest->diaf);
         printf("///              Mês do Cadastro (mm): %s\n", gest->mesf);
         printf("///              Ano do Cadastro (aaaa): %s\n", gest->anof);
-	    printf("///              Faturamento diário: %s\n", gest->ftd);
+	printf("///              Faturamento diário: %s\n", gest->ftd);
         printf("///              Daspesas diária: %s\n", gest->dpd);
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -497,7 +497,7 @@ void telaRelatorioMensal(Gestao* gest) {
         printf("///              ============== Fluxo de Caixa Inexistente ==============             ///\n");
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	} else {
+    } else {
         printf("\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
         printf("///              =======================================================              ///\n");
@@ -509,10 +509,10 @@ void telaRelatorioMensal(Gestao* gest) {
         printf("///                                                                                   ///\n");
         printf("///                                                                                   ///\n");
         printf("///              ID do Cadastro: %s\n", gest->id);
-	    printf("///              Dia do Cadastro (dd): %s\n", gest->diaf);
+	printf("///              Dia do Cadastro (dd): %s\n", gest->diaf);
         printf("///              Mês do Cadastro (mm): %s\n", gest->mesf);
         printf("///              Ano do Cadastro (aaaa): %s\n", gest->anof);
-	    printf("///              Faturamento diário: %s\n", gest->ftd);
+	printf("///              Faturamento diário: %s\n", gest->ftd);
         printf("///              Daspesas diária: %s\n", gest->dpd);
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -560,23 +560,23 @@ void exibirFluxoDeCaixa(Gestao* gest) {
         printf("///              ============== Fluxo de Caixa Inexistente ==============             ///\n");
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	} else {
+    } else {
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                                   ///\n");
-		printf("///              ============== Fluxo De Caixa Cadastrado ==============              ///\n");
+	printf("///              ============== Fluxo De Caixa Cadastrado ==============              ///\n");
         printf("///                                                                                   ///\n");
-		printf("///              ID do Cadastro: %s\n", gest->id);
-		printf("///              Dia do Cadastro (dd): %s\n", gest->diaf);
+	printf("///              ID do Cadastro: %s\n", gest->id);
+	printf("///              Dia do Cadastro (dd): %s\n", gest->diaf);
         printf("///              Mês do Cadastro (mm): %s\n", gest->mesf);
         printf("///              Ano do Cadastro (aaaa): %s\n", gest->anof);
-		printf("///              Faturamento diário: %s\n", gest->ftd);
+	printf("///              Faturamento diário: %s\n", gest->ftd);
         printf("///              Daspesas diária: %s\n", gest->dpd);
-		printf("///              Lucro diário: %s\n", gest->lcd);
+	printf("///              Lucro diário: %s\n", gest->lcd);
         printf("///                                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
         getchar();
     }
-	printf("\n\nTecle ENTER para continuar!\n\n");
+    printf("\n\nTecle ENTER para continuar!\n\n");
     getchar();
 }
 
