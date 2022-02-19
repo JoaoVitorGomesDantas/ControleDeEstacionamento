@@ -205,7 +205,7 @@ void telaErroArquivoFuncionario(void) {
   	printf("///                                                                                   ///\n");
 	printf("///                                  Ocorreu um erro!                                 ///\n");
 	printf("///                      Não foi possível acessar o arquivo com                       ///\n");
-	printf("///                          informações sobre os clientes.                           ///\n");
+	printf("///                        informações sobre os funcionários.                         ///\n");
 	printf("///                                                                                   ///\n");
 	printf("///                      Pedimos desculpas pelos inconvenientes                       ///\n");
 	printf("///                        mas este programa será finalizado!                         ///\n");
