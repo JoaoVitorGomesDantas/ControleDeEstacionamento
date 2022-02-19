@@ -22,7 +22,6 @@ struct cliente {
   char fone[12];
   char veic[30];
   char placa[10];
-  char cor[15];
   int status;
 };
 
