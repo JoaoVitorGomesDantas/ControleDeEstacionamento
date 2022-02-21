@@ -24,21 +24,21 @@ typedef struct cliente Cliente;
 void moduloCliente(void) {
   char opc;
   do {
-      opc = telaCliente();
-      switch(opc) {
-          case '1': 	cadastrarCliente();
-                      break;
-          case '2': 	pesquisarCliente();
-                      break;
-          case '3': 	atualizarCliente();
-                      break;
-          case '4': 	excluirCliente();
-                      break;
-          case '5':   listarCliente();
-                      break;
-          case '6':   listaClientesPorCidade();
-                      break;
-      } 		
+    opc = telaCliente();
+    switch(opc) {
+      case '1': 	cadastrarCliente();
+        break;
+      case '2': 	pesquisarCliente();
+        break;
+      case '3': 	atualizarCliente();
+        break;
+      case '4': 	excluirCliente();
+        break;
+      case '5':   listarCliente();
+        break;
+      case '6':   listaClientesPorCidade();
+        break;
+    } 		
   } while (opc != '0');
 }
 
@@ -46,7 +46,7 @@ void cadastrarCliente(void) {
 	Cliente *cli;
 
 	cli = telaCadastrar();
-  	salvarCliente(cli);
+  salvarCliente(cli);
 	free(cli);
 }
 
@@ -69,15 +69,15 @@ void atualizarCliente(void) {
 	cli = buscarCliente(cpf);
 	if (cli == NULL) {
 		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		printf("///                                                                                   ///\n");
-    		printf("///              =============== Cliente não encontrado! ===============              ///\n");
-    		printf("///                                                                                   ///\n");
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	} else {
+    printf("///                                                                                   ///\n");
+    printf("///              =============== Cliente não encontrado! ===============              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  } else {
 		cli = telaCadastrar();
 		strcpy(cli->cpf, cpf);
-      		excluirCliente();
-      		cadastrarCliente();
+    excluirCliente();
+    cadastrarCliente();
 		free(cli);
 	}
 	free(cpf);
@@ -92,11 +92,11 @@ void excluirCliente(void) {
 	cli = buscarCliente(cpf);
 	if (cli == NULL) {
 		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		printf("///                                                                                   ///\n");
-    		printf("///              =============== Cliente não encontrado! ===============              ///\n");
-    		printf("///                                                                                   ///\n");
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	} else {
+    printf("///                                                                                   ///\n");
+    printf("///              =============== Cliente não encontrado! ===============              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  } else {
 		cli->status = False;
 		regravarCliente(cli);
 		free(cli);
@@ -106,26 +106,26 @@ void excluirCliente(void) {
 
 void listarCliente(void) {
 	FILE* fp;
-	  Cliente* cli;
-	  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	  printf("///                                                                                   ///\n");
-	  printf("///              ================== Lista de Clientes ==================              ///\n");
-	  printf("///                                                                                   ///\n");
-		  cli = (Cliente*) malloc(sizeof(Cliente));
-	  fp = fopen("cliente.dat", "rb");
-	  if (fp == NULL) {
+	Cliente* cli;
+	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                                   ///\n");
+	printf("///              ================== Lista de Clientes ==================              ///\n");
+	printf("///                                                                                   ///\n");
+	cli = (Cliente*) malloc(sizeof(Cliente));
+	fp = fopen("cliente.dat", "rb");
+	if (fp == NULL) {
 		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		printf("///                                                                                   ///\n");
-    		printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
-    		printf("///              ======= Não é possível continuar este programa! =======              ///\n");
-   	 	printf("///                                                                                   ///\n");
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		exit(1);
-	  }
-  	  while(fread(cli, sizeof(Cliente), 1, fp)) {
-		  if (cli->status != 0) {
-			  exibirCliente(cli);
-		  }
+    printf("///                                                                                   ///\n");
+    printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
+    printf("///              ======= Não é possível continuar este programa! =======              ///\n");
+   	printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    exit(1);
+	}
+  while(fread(cli, sizeof(Cliente), 1, fp)) {
+		if (cli->status != 0) {
+			exibirCliente(cli);
+		}
 	}
 	fclose(fp);
 }
@@ -148,19 +148,19 @@ void listaClientesPorCidade(void) {
 	fp = fopen("cliente.dat", "rb");
 	if (fp == NULL) {
 		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	    	printf("///                                                                                   ///\n");
-	    	printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
-	    	printf("///              ======= Não é possível continuar este programa! =======              ///\n");
-	    	printf("///                                                                                   ///\n");
-	    	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-	    	exit(1);
+	  printf("///                                                                                   ///\n");
+	  printf("///              ======= Ocorreu um erro na abertura do arquivo! =======              ///\n");
+	  printf("///              ======= Não é possível continuar este programa! =======              ///\n");
+	  printf("///                                                                                   ///\n");
+	  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+	  exit(1);
 	}
 	while(fread(cli, sizeof(Cliente), 1, fp)) {
 		if (strcmp(cli->city, city) == 0 && (cli->status != 0)) {
 			exibirCliente(cli);
 		}
 	}
-  	fclose(fp);
+  fclose(fp);
 }
 
 char telaCliente(void) {
@@ -248,7 +248,7 @@ Cliente* telaCadastrar(void) {
 	} while (!validarCPF(cli->cpf));
 
 	do {
-		printf("///          Data de nascimento (dd/mm/aaaa): ");
+		printf("///          Data de nascimento (ddmmaaaa): ");
 		scanf("%[0-9]/", cli->nasc);
 		getchar();
 	} while (!validarData(cli->nasc));
@@ -273,7 +273,7 @@ Cliente* telaCadastrar(void) {
 		getchar();
 	} while (!validarNome(cli->veic));
 
-	printf("///          Placa do veículo: ");
+	printf("///          Placa do veículo (ABC12D3): ");
 	scanf("%[A-Za-z0-9]", cli->placa);
 	getchar();
 
@@ -289,116 +289,116 @@ Cliente* telaCadastrar(void) {
 
 char* telaPesquisar(void) {
 	char* cpf;
-  	cpf = (char*) malloc(14*sizeof(char));
+  cpf = (char*) malloc(14*sizeof(char));
 
-  	system("clear||cls");
-  	printf("\n");
+  system("clear||cls");
+  printf("\n");
  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///              ================== Pesquisar Cliente ==================              ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	do {
+  printf("///              =======================================================              ///\n");
+  printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  printf("///              =======================================================              ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                   ///\n");
+  printf("///              ================== Pesquisar Cliente ==================              ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  do {
 		getchar();
-    		printf("///          Informe o CPF: ");
-    		scanf("%[0-9].", cpf);
-    		getchar();
-  	} while (!validarCPF(cpf));
+    printf("///          Informe o CPF: ");
+    scanf("%[0-9].", cpf);
+    getchar();
+  } while (!validarCPF(cpf));
 
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("\n");
-  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-  	getchar();
-  	return cpf;
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  getchar();
+  return cpf;
 }
 
 char* telaAtualizar(void) {
 	char* cpf;
-  	cpf = (char*) malloc(14*sizeof(char));
+  cpf = (char*) malloc(14*sizeof(char));
 
-  	system("clear||cls");
-  	printf("\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///              ================== Atualizar Cliente ==================              ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	do {
+  system("clear||cls");
+  printf("\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///              =======================================================              ///\n");
+  printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  printf("///              =======================================================              ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                   ///\n");
+  printf("///              ================== Atualizar Cliente ==================              ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  do {
 		getchar();
-    		printf("///          Informe o CPF: ");
-    		scanf("%[0-9].", cpf);
-    		getchar();
-  	} while (!validarCPF(cpf));
+    printf("///          Informe o CPF: ");
+    scanf("%[0-9].", cpf);
+    getchar();
+  } while (!validarCPF(cpf));
 
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("\n");
-  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-  	getchar();
-  	return cpf;
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  getchar();
+  return cpf;
 }
 
 char* telaExcluir(void) {
 	char* cpf;
-  	cpf = (char*) malloc(14*sizeof(char));
+  cpf = (char*) malloc(14*sizeof(char));
 
-  	system("clear||cls");
-  	printf("\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-  	printf("///              =======================================================              ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///              =================== Excluir Cliente ===================              ///\n");
-  	printf("///                                                                                   ///\n");
+  system("clear||cls");
+  printf("\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///              =======================================================              ///\n");
+  printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  printf("///              =======================================================              ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                   ///\n");
+  printf("///              =================== Excluir Cliente ===================              ///\n");
+  printf("///                                                                                   ///\n");
  	printf("///                                                                                   ///\n");
-  	do {
+  do {
 		getchar();
-    		printf("///          Informe o CPF: ");
-    		scanf("%[0-9].", cpf);
-    		getchar();
-  	} while (!validarCPF(cpf));
+    printf("///          Informe o CPF: ");
+    scanf("%[0-9].", cpf);
+    getchar();
+  } while (!validarCPF(cpf));
 
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("///                                                                                   ///\n");
-  	printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-  	printf("\n");
-  	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-  	getchar();
-  	return cpf;
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///                                                                                   ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+  getchar();
+  return cpf;
 }
 
 
 void salvarCliente(Cliente* cli) {
 	FILE* fp;
 
-  	fp = fopen("cliente.dat", "ab");
-  	if (fp == NULL){
+  fp = fopen("cliente.dat", "ab");
+  if (fp == NULL){
 		telaErroArquivoCliente(); 
-  	}
-  	fwrite(cli, sizeof(Cliente), 1, fp);
-  	fclose(fp);
+  }
+  fwrite(cli, sizeof(Cliente), 1, fp);
+  fclose(fp);
 }
 
 Cliente* buscarCliente(char* cpf) {
@@ -411,7 +411,7 @@ Cliente* buscarCliente(char* cpf) {
 		telaErroArquivoCliente();
 	}
 	while(fread(cli, sizeof(Cliente), 1, fp)) {
-    		if ((strcmp(cli->cpf, cpf) == 0) && (cli->status == True)) {
+    if ((strcmp(cli->cpf, cpf) == 0) && (cli->status == True)) {
 			fclose(fp);
 			return cli;
 		}
@@ -424,30 +424,30 @@ void exibirCliente(Cliente* cli) {
 	
 	if (cli == NULL) {
 		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		printf("///                                                                                   ///\n");
-    		printf("///              ================= Cliente Inexistente =================              ///\n");
-    		printf("///                                                                                   ///\n");
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
+    printf("///              ================= Cliente Inexistente =================              ///\n");
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 	} else {
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                                   ///\n");
 		printf("///              ================ Cliente Cadastrado ===================              ///\n");
-    		printf("///                                                                                   ///\n");
+    printf("///                                                                                   ///\n");
 		printf("///              Nome do cliente: %s\n", cli->nome);
 		printf("///              CPF: %s\n", cli->cpf);
 		printf("///              Data de nascimento: %s\n", cli->nasc);
-    		printf("///              Cidade: %s\n", cli->city);
+    printf("///              Cidade: %s\n", cli->city);
 		printf("///              Email: %s\n", cli->email);
 		printf("///              Telefone: %s\n", cli->fone);
 		printf("///              Veículo: %s\n", cli->veic);
-    		printf("///              Placa do veículo: %s\n", cli->placa);
-    		printf("///              Status: %d\n", cli->status);
-    		printf("///                                                                                   ///\n");
-    		printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    		getchar();
+    printf("///              Placa do veículo: %s\n", cli->placa);
+    printf("///              Status: %d\n", cli->status);
+    printf("///                                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
 	}
 	printf("\n\nTecle ENTER para continuar!\n\n");
-  	getchar();
+  getchar();
 }
 
 void regravarCliente(Cliente* cli) {
@@ -465,7 +465,7 @@ void regravarCliente(Cliente* cli) {
 		if (strcmp(cliLido->cpf, cli->cpf) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
-      			fwrite(cli, sizeof(Cliente), 1, fp);
+      fwrite(cli, sizeof(Cliente), 1, fp);
 		}
 	}
 	fclose(fp);

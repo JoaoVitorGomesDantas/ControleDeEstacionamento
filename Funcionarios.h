@@ -14,16 +14,16 @@
 typedef struct funcionario Funcionario;
 
 struct funcionario {
-    char nome[61];
-    char cpf[14];
-    char rg[14];
-    char nasc[11];
-    char city[61];
-    char end[61];
-    char email[61];
-    char fone[12];
-    char trn[21];
-    int status;
+  char nome[61];
+  char cpf[14];
+  char rg[14];
+  char nasc[11];
+  char city[61];
+  char end[61];
+  char email[61];
+  char fone[12];
+  char trn[21];
+  int status;
 };
 
 void cadastrarFuncionario(void);

@@ -30,20 +30,20 @@ void telaSistemaFinalizado(void);
 ////////////////////////
 
 int main(void) {
-    char opc;
+  char opc;
 
-    do {
-        opc = telaInicio();
-        switch(opc) {
-            case '1':   moduloCliente();
-                break;
-            case '2':   moduloAluguel();
-                break;
-            case '3':   moduloGestao();
-                break;
-            case '4':   moduloSobre();
-                break;
-        } 	
+  do {
+    opc = telaInicio();
+    switch(opc) {
+      case '1':   moduloCliente();
+        break;
+      case '2':   moduloAluguel();
+        break;
+      case '3':   moduloGestao();
+        break;
+      case '4':   moduloSobre();
+        break;
+    } 	
   } while (opc != '0');
   telaSistemaFinalizado();
 }
@@ -53,48 +53,48 @@ int main(void) {
 /////////////
 
 char telaInicio(void) {
-    char opc;
+  char opc;
 
-    system("clear||cls");
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///              =======================================================              ///\n");
-    printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
-    printf("///              =======================================================              ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                   ///\n");
-    printf("///              ========================  Menu  =======================              ///\n");
-    printf("///                                                                                   ///\n");
-    printf("///               1 -  Módulo Clientes                                                ///\n");
-    printf("///               2 -  Módulo Aluguel                                                 ///\n");
-    printf("///               3 -  Módulo Gestão                                                  ///\n");
-    printf("///               4 -  Sobre                                                          ///\n");
-    printf("///               0 -  Sair                                                           ///\n");
-    printf("///                                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("               Escolha a opção que você deseja: ");
-    scanf("%c", &opc);
-    printf("\n");
-    printf("\t\t\t>>>  Aguarde um momento...\n");
-    return opc;
+  system("clear||cls");
+  printf("\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///              =======================================================              ///\n");
+  printf("///              ======   Sistema de Controle de Estacionamento   ======              ///\n");
+  printf("///              =======================================================              ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                   ///\n");
+  printf("///              ========================  Menu  =======================              ///\n");
+  printf("///                                                                                   ///\n");
+  printf("///               1 -  Módulo Clientes                                                ///\n");
+  printf("///               2 -  Módulo Aluguel                                                 ///\n");
+  printf("///               3 -  Módulo Gestão                                                  ///\n");
+  printf("///               4 -  Sobre                                                          ///\n");
+  printf("///               0 -  Sair                                                           ///\n");
+  printf("///                                                                                   ///\n");
+  printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("               Escolha a opção que você deseja: ");
+  scanf("%c", &opc);
+  printf("\n");
+  printf("\t\t\t>>>  Aguarde um momento...\n");
+  return opc;
 }
 
 void telaSistemaFinalizado(void) {
     
-    system("clear||cls");
-    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                    ///\n");
-    printf("///                =======================================================             ///\n");
-    printf("///                ======   Sistema de Controle de Estacionamento   ======             ///\n");
-    printf("///                =======================================================             ///\n");
-    printf("///                                                                                    ///\n");
-    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                                    ///\n");
-    printf("///                       Obrigado por utilizar o nosso sistema!                       ///\n");
-    printf("///                          O sistema está sendo finalizado!                          ///\n");
-    printf("///                                 Sistema Finalizado!                                ///\n");
-    printf("///                                                                                    ///\n");
-    printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
-    exit(1);
+  system("clear||cls");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                    ///\n");
+  printf("///                =======================================================             ///\n");
+  printf("///                ======   Sistema de Controle de Estacionamento   ======             ///\n");
+  printf("///                =======================================================             ///\n");
+  printf("///                                                                                    ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                                    ///\n");
+  printf("///                       Obrigado por utilizar o nosso sistema!                       ///\n");
+  printf("///                          O sistema está sendo finalizado!                          ///\n");
+  printf("///                                 Sistema Finalizado!                                ///\n");
+  printf("///                                                                                    ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////////////////\n");
+  exit(1);
 }
