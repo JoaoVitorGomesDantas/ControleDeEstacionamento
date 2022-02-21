@@ -124,7 +124,7 @@ void listarCliente(void) {
 	  }
   	  while(fread(cli, sizeof(Cliente), 1, fp)) {
 		  if (cli->status != 0) {
-			  exibirCliente(cli)
+			  exibirCliente(cli);
 		  }
 	}
 	fclose(fp);
