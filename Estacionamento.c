@@ -15,7 +15,7 @@
 #include "Cliente.h"
 #include "Funcionarios.h"
 #include "Aluguel.h"
-#include "Gestão.h"
+#include "Gestao.h"
 #include "Sobre.h"
 
 /////////////////////////////
